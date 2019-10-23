@@ -166,6 +166,12 @@ public class DashboardPage extends BasePage {
         driver.close();
         driver.switchTo().window(tabs.get(0));
     }
+
+    @Step
+    public OrderForEmployeePage go_to_orderForEmployeePage(){
+        orderForEmployeeButton.click();
+        return new OrderForEmployeePage(driver);
+    }
 }
 
 

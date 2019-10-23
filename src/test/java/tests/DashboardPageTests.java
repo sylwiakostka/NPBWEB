@@ -11,7 +11,7 @@ public class DashboardPageTests extends BaseTests {
 
 
     @Test
-    public void should_verify_qr_code_and_download_app_section() throws IOException, NotFoundException {
+    public void should_verify_qr_code_and_download_app_section() throws IOException, NotFoundException, InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()

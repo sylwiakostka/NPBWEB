@@ -17,7 +17,7 @@ public class LoginPageTests extends BaseTests {
     }
 
     @Test
-    public void should_login_as_superAdmin_and_logout() {
+    public void should_login_as_superAdmin_and_logout() throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()

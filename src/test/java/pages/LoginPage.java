@@ -45,7 +45,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//h2[.='Wybierz partnera biznesowego']")
     private WebElement chooseBusinesPartnerSection;
 
-    @FindBy(xpath = "//input[@placeholder='Wpisz aby wyszukać...']")
+    @FindBy(xpath = "//input[@placeholder='Wpisz...']")
     private WebElement typeBusinesPartnerField;
 
     @FindBy(xpath = "//button[@id='button']//span[.='Wybierz']")
@@ -101,11 +101,14 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public DashboardPage choose_business_partner_from_list(String businessPartnerName) {
+    public DashboardPage choose_business_partner_from_list(String businessPartnerName) throws InterruptedException {
         waitForPresenceOfElement(chooseBusinesPartnerSection);
         typeBusinesPartnerField.sendKeys(businessPartnerName);
-        WebElement firstCompany = driver.findElement(By.xpath("//label[@for='radio-0']"));
-        firstCompany.click();
+        typeBusinesPartnerField.click();
+
+        findElementFromUlListByTextAndClick(businessPartnerName);
+        Thread.sleep(2000);
+        waitForVisibilityOfElement(chooseBusinesPartnerButton);
         chooseBusinesPartnerButton.click();
         return new DashboardPage(driver);
     }
@@ -148,7 +151,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public LoginPage try_login_without_login_and_password()  {
+    public LoginPage try_login_without_login_and_password() {
         waitForPresenceOfElement(usernameField);
         waitForPresenceOfElement(passwordField);
         usernameField.clear();
@@ -165,7 +168,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public LoginPage try_login_with_correct_login_and_incorrect_password()  {
+    public LoginPage try_login_with_correct_login_and_incorrect_password() {
         waitForPresenceOfElement(usernameField);
         waitForPresenceOfElement(passwordField);
         usernameField.clear();
@@ -181,7 +184,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public LoginPage try_login_with_incorrect_login_and_correct_password()  {
+    public LoginPage try_login_with_incorrect_login_and_correct_password() {
         waitForPresenceOfElement(usernameField);
         waitForPresenceOfElement(passwordField);
         usernameField.clear();
@@ -224,5 +227,7 @@ public class LoginPage extends BasePage {
         verify_loginPage();
         return this;
     }
+
+
 
 }

@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,6 +28,10 @@ public class BasePage {
 
     protected void waitForVisibilityOfElement(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    protected void waitForTextToBePresentInElementValue(WebElement element, String textInElement) {
+        wait.until(ExpectedConditions.textToBePresentInElementValue(element,textInElement));
     }
 
     protected void waitForVisibilityOfElement2(List<WebElement> elements) {
@@ -93,6 +95,21 @@ public class BasePage {
                 }
             }
         });
+    }
+
+    protected void findElementFromUlListByTextAndClick(String textToFind){
+        WebElement ulClass = driver.findElement(By.xpath("//ul[@class='open']"));
+        List<WebElement> liList = ulClass.findElements(By.tagName("li"));
+        for (WebElement li : liList) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            String text = (String) js.executeScript("return arguments[0].innerText", li);
+            System.out.println(text);
+            if (text.equals(textToFind)) {
+                li.click();
+            }
+        }
+
+
     }
 
 

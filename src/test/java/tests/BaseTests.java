@@ -32,29 +32,29 @@ public class BaseTests {
     }
 
 
-    @AfterMethod
-    @Attachment(value = "Error screenshot", type = "image/png")
-    public void TakeScreenshotOfFailure(ITestResult result) {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            try {
-                TakesScreenshot screenshot = (TakesScreenshot) driver;
-                File src = screenshot.getScreenshotAs(OutputType.FILE);
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy HH-mm-ss");
-                Date date = new Date();
-                String dateOfTest = sdf.format(date);
-                FileUtils.copyFile(src, new File("C:\\Users\\user\\Desktop\\NPB\\screenshot\\" + " " + dateOfTest + " " + result.getName() + ".png"));
-                System.out.println("Successfully captured a screenshot" + " " + dateOfTest + " " + result.getName());
-
-            } catch (Exception e) {
-                System.out.println("Exception while taking screenshot " + e.getMessage());
-            }
-            finally {
-                driver.quit();
-                DriverFactory.resetDriver();
-
-            }
-        }
-    }
+//    @AfterMethod
+//    @Attachment(value = "Error screenshot", type = "image/png")
+//    public void TakeScreenshotOfFailure(ITestResult result) {
+//        if (ITestResult.FAILURE == result.getStatus()) {
+//            try {
+//                TakesScreenshot screenshot = (TakesScreenshot) driver;
+//                File src = screenshot.getScreenshotAs(OutputType.FILE);
+//                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy HH-mm-ss");
+//                Date date = new Date();
+//                String dateOfTest = sdf.format(date);
+//                FileUtils.copyFile(src, new File("C:\\Users\\user\\Desktop\\NPB\\screenshot\\" + " " + dateOfTest + " " + result.getName() + ".png"));
+//                System.out.println("Successfully captured a screenshot" + " " + dateOfTest + " " + result.getName());
+//
+//            } catch (Exception e) {
+//                System.out.println("Exception while taking screenshot " + e.getMessage());
+//            }
+//            finally {
+//                driver.quit();
+//                DriverFactory.resetDriver();
+//
+//            }
+//        }
+//    }
 
 }
 
