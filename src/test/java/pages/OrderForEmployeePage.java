@@ -88,7 +88,7 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public OrderForEmployeePage verifyOrderTaxiPageLabelNames() {
         List<String> expectedTexts = Arrays.asList("*Zamawiam taksówkę dla:", "Typ płatności:", "Płatność biznesowa", "Ilu pasażerów pojedzie z tą osobą:", "*Adres startowy:", "Adres docelowy:", "Na teraz!", "Na potem: ", "Projekt:", "Dodaj komentarz:");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> labels = driver.findElements(By.xpath("//div[@class='input']//label | //div[@class='input start']//label"));
         for (WebElement label : labels) {
@@ -299,7 +299,7 @@ public class OrderForEmployeePage extends BasePage {
     public OrderForEmployeePage verifyConfirmationOrderPopupWithAllInformation() {
 
         List<String> expectedTexts = Arrays.asList(getNumberOfTaxisOrdered(), getPassengerName(), getStartAddress(),getFinalAddress(), getOrderTime(), getComment());
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         waitForPresenceOfElement(confirmationOrderPopup);
         WebElement header = confirmationOrderPopup.findElement(By.tagName("h3"));

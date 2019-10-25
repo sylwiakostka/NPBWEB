@@ -55,12 +55,12 @@ public class DashboardPage extends BasePage {
 
     @Step
     public DashboardPage verify_dashboardPge_for_employee(String businessPartnerName) {
-        waitForVisibilityOfElement(dashboardSection);
-        waitForVisibilityOfElement(orderTaxiSection);
+        waitForPresenceOfElement(dashboardSection);
+        waitForPresenceOfElement(orderTaxiSection);
         waitForVisibilityOfElement(menuSection);
 
         List<String> expectedTexts = Arrays.asList("Dashboard", "Zamów taksówkę", "Zamówione taksówki", "Raporty i faktury", "Ustawienia");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
         waitForPresenceOfElements(menuButtonList);
@@ -85,11 +85,11 @@ public class DashboardPage extends BasePage {
     @Step
     public DashboardPage verify_dashboardPge_for_admin(String businessPartnerName) {
         waitForVisibilityOfElement(dashboardSection);
-        waitForVisibilityOfElement(orderTaxiSection);
-        waitForVisibilityOfElement(menuSection);
+        waitForPresenceOfElement(orderTaxiSection);
+        waitForPresenceOfElement(menuSection);
 
         List<String> expectedTexts = Arrays.asList("Dashboard", "Zamów taksówkę", "Zamówione taksówki", "Raporty i faktury", "Zarządzanie", "Pracownicy", "Ustawienia");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
         for (WebElement element : menuButtonList) {

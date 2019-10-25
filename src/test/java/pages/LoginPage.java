@@ -116,7 +116,7 @@ public class LoginPage extends BasePage {
     @Step
     public LoginPage verify_benefitsSection() {
         List<String> expectedTexts = Arrays.asList("Oszczędność czasu dla działów administracji i księgowości", "Narzędzie do kontroli kosztów", "Możliwość zarządzania przejazdami pracowników na wielu płaszczyznach", "Możliwość nadania wielu limitów", "Podgląd na bieżące wykorzystanie", "Rozbudowane raportowanie", "Wszystkie faktury w jednym miejscu", "Kanał informacji o bieżących akcjach i promocjach", "Bezpieczeństwo danych");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         WebElement benefitsList = driver.findElement(By.xpath("//div[@class='benefits']//ul"));
         List<WebElement> elementsFromList = benefitsList.findElements(By.tagName("li"));

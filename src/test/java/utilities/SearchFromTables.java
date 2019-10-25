@@ -24,7 +24,7 @@ public class SearchFromTables extends BasePage {
 
         fieldToSearch.sendKeys(dataToSearch);
 
-        List<String> listWithNames = new ArrayList<>();
+        List<String> listWithNames = new ArrayList<String>();
 
         try {
             for (WebElement row : listOfRowsRequired) {
@@ -61,7 +61,7 @@ public class SearchFromTables extends BasePage {
         Assert.assertEquals(select.getFirstSelectedOption().getText(), "Pokaż wszystkie");
         select.selectByVisibleText(dataToSelect);
 
-        List<String> listWithDays = new ArrayList<>();
+        List<String> listWithDays = new ArrayList<String>();
 
         try {
             for (WebElement row : rowsWithData) {

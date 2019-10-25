@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite1]" parallel="classes">
+  <test thread-count="5" verbose="0" name="OrderTests(failed)" parallel="classes">
+    <classes>
+      <class name="tests.DashboardPageTests">
+        <methods>
+          <include name="should_verify_qr_code_and_download_app_section"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- tests.DashboardPageTests -->
+      <class name="tests.OrderForEmployeePageTests">
+        <methods>
+          <include name="should_order_taxi"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- tests.OrderForEmployeePageTests -->
+    </classes>
+  </test> <!-- OrderTests(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

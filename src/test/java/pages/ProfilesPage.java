@@ -138,7 +138,7 @@ public class ProfilesPage extends BasePage {
     public ProfilesPage verify_profiles_tab_header_names() {
 
         List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzinowy", "Dni tygodnia", "Limit ilościowy", "Limit kwotowy", "Alert gdy zostało mniej niż", "Maksymalna taryfa", "Liczba użytkowników", "Klasa samochodu", "Opcje");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> listOfHeaderNames = driver.findElements(By.xpath("//div[@class='rt-thead -header']//div[@role='row']/descendant::div[@class='rt-resizable-header-content']"));
         for (WebElement header : listOfHeaderNames) {
@@ -267,7 +267,7 @@ public class ProfilesPage extends BasePage {
     public ProfilesPage verify_new_profile_form_fields_name() {
 
         List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzin", "Od", "Do", "Limit kwotowy", "Limit ilościowy", "Alert gdy zostało mniej niż", "Dni tygodnia", "Maksymalna taryfa", "Klasa samochodu", "Komentarz dla CC");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> profleFields = driver.findElements(By.xpath("//div[@class='inputs']//div[@class='input']//label"));
         for (WebElement field : profleFields) {
@@ -527,7 +527,7 @@ public class ProfilesPage extends BasePage {
     @Step
     public List<String> take_profile_names_from_main_table() throws InterruptedException {
         Thread.sleep(1000);
-        List<String> rowsListWithNames = new ArrayList<>();
+        List<String> rowsListWithNames = new ArrayList<String>();
         List<WebElement> rowsWithName = driver.findElements(By.xpath("//div[@class='rt-tr-group']/descendant::div[2]"));
         for (WebElement rowWithName : rowsWithName) {
             rowsListWithNames.add(rowWithName.getText());
@@ -539,7 +539,7 @@ public class ProfilesPage extends BasePage {
     @Step
     public List<String> take_profile_names_from_edit_or_delete_selectList() {
         profileListToAssignEmployee.click();
-        List<String> selectListWithNames = new ArrayList<>();
+        List<String> selectListWithNames = new ArrayList<String>();
         List<WebElement> listWithNames = driver.findElements(By.xpath("//div[@class='select-search']//ul//li"));
         for (WebElement name : listWithNames) {
             selectListWithNames.add(name.getText());

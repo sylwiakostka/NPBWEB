@@ -132,7 +132,7 @@ public class MpkPage extends BasePage {
     @Step
     public MpkPage verify_mpk_tab_header_names() {
         List<String> expectedTexts = Arrays.asList("Limit kwotowy", "Wykorzystano", "Alert gdy pozostało mniej niż", "Uwagi", "Opcje");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> listOfHeaderNames = driver.findElements(By.xpath("//div[@class='rt-thead -header']//div[@role='row']/descendant::div[@class='rt-resizable-header-content']"));
         for (WebElement header : listOfHeaderNames) {
@@ -150,7 +150,7 @@ public class MpkPage extends BasePage {
     public MpkPage verify_new_mpk_form_fields_name() {
 
         List<String> expectedTexts = Arrays.asList("Nazwa", "Limit kwotowy", "Alert gdy pozostało mniej niż", "Uwagi");
-        List<String> actualTexts = new ArrayList<>();
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> mpkFields = driver.findElements(By.xpath("//div[@class='inputs']//div[@class='input']"));
         for (WebElement field : mpkFields) {

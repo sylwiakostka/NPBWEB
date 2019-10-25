@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 39.534 s <<< FAILURE! - in TestSuite
+should_verify_qr_code_and_download_app_section(tests.DashboardPageTests)  Time elapsed: 11.661 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='notifications']//p[.='Zalogowano poprawnie.']"}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'ITAXI12', ip: '10.0.0.79', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50802}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a9f3ffb34aa4bb13097e9fdcbc5f55ab
+*** Element info: {Using=xpath, value=//div[@class='notifications']//p[.='Zalogowano poprawnie.']}
+	at tests.DashboardPageTests.should_verify_qr_code_and_download_app_section(DashboardPageTests.java:17)
+
+should_order_taxi(tests.OrderForEmployeePageTests)  Time elapsed: 21.65 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='notifications']//p[.='Zalogowano poprawnie.']"}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'ITAXI12', ip: '10.0.0.79', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50802}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a9f3ffb34aa4bb13097e9fdcbc5f55ab
+*** Element info: {Using=xpath, value=//div[@class='notifications']//p[.='Zalogowano poprawnie.']}
+	at tests.OrderForEmployeePageTests.should_order_taxi(OrderForEmployeePageTests.java:13)
+
