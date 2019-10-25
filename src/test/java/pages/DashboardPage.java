@@ -50,7 +50,7 @@ public class DashboardPage extends BasePage {
     private WebElement companyName;
 
     @FindBy(xpath = "//a[@href='/manage']//span[.='Zarządzanie']")
-    private WebElement manageButton;
+    private WebElement manageButtonnn;
 
 
     @Step

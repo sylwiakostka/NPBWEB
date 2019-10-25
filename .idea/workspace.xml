@@ -2,45 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="743fa332-9854-4dea-9537-16977104958f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/TestNgXML/orderTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/TestNgXML/parallel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/Suite1/OrderTests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/Suite1/OrderTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/Suite1/testng-failed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/bullet_point.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/collapseall.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/failed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/jquery-1.7.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.DashboardPageTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.OrderForEmployeePageTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/navigator-bullet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/OrderTests.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/classes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/groups.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/methods-alphabetical.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/methods-not-run.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/methods.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/reporter-output.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/testng.xml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/Suite1/toc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/old/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/passed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/skipped.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/testng-failed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/testng-reports.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/testng-reports.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/testng.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/1826605c-6a69-4f59-81fa-30565e589793-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/20b09f04-2d42-43d8-99e3-67fd3c43da5a-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/43fd2c31-fc10-409a-bef2-071b1dd2bfd1-container.json" beforeDir="false" />
@@ -53,16 +14,7 @@
       <change beforePath="$PROJECT_DIR$/allure-results/b6c634cf-6c0e-4d27-accf-f36aa21344ab-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/dab76db9-6963-4215-80e8-e3d795bf6e3e-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/e54724f2-d5de-4db4-9eb2-c18221d69d32-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/DashboardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/DashboardPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/OrderForEmployeePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/OrderForEmployeePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/orderTests.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,8 +30,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="137" selection-start-line="137" selection-end-line="137" />
+            <state relative-caret-position="47">
+              <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -212,10 +164,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="1880" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1909" />
+    <option name="y" value="204" />
     <option name="width" value="1900" />
-    <option name="height" value="1047" />
+    <option name="height" value="840" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -558,7 +511,8 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1880" y="0" width="1900" height="1047" extended-state="0" />
+    <frame x="1909" y="204" width="1900" height="840" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -569,7 +523,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.5090293" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.66421205" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -991,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        <state relative-caret-position="47">
+          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
         </state>
       </provider>
     </entry>
