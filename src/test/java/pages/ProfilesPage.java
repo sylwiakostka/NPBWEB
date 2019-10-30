@@ -130,7 +130,7 @@ public class ProfilesPage extends BasePage {
     public ProfilesPage verify_profilesPage() throws InterruptedException {
         Thread.sleep(3000);
         waitForPresenceOfElement(profilesHeader);
-        Assert.assertTrue(profilesHeader.getText().contains("Zarządzanie profilami - firma "));
+        Assert.assertTrue(profilesHeader.getText().contains("Zarządzanie profilami - firma"));
         return this;
     }
 
@@ -266,7 +266,7 @@ public class ProfilesPage extends BasePage {
     @Step
     public ProfilesPage verify_new_profile_form_fields_name() {
 
-        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzin", "Od", "Do", "Limit kwotowy", "Limit ilościowy", "Alert gdy zostało mniej niż", "Dni tygodnia", "Maksymalna taryfa", "Klasa samochodu", "Komentarz dla CC");
+        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzin", "Od", "Do", "Limit ilościowy", "Limit kwotowy", "Alert gdy zostało mniej niż", "Dni tygodnia", "Maksymalna taryfa", "Klasa samochodu", "Komentarz dla CC");
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> profleFields = driver.findElements(By.xpath("//div[@class='inputs']//div[@class='input']//label"));

@@ -60,7 +60,7 @@ public class RemindPasswordPage extends BasePage {
     @FindBy(xpath = "//div[@class='input']//p[.='Podaj adres email']")
     private WebElement errorEmailInfo;
 
-    @FindBy (xpath = "//div[@class='notifications']//p[.='Brak konta biznesowego na podany email']")
+    @FindBy (xpath = "//div[@class='notifications']//p[.='Wysyłanie wiadomości nie powiodło się, sprawdź poprawność adresu email']")
     private WebElement errorEmailNotification;
 
     @Step
@@ -133,7 +133,7 @@ public class RemindPasswordPage extends BasePage {
         waitForPresenceOfElement(errorEmailInfo);
         Assert.assertEquals(errorEmailInfo.getText(), "Podaj adres email");
         waitForPresenceOfElement(errorEmailNotification);
-        Assert.assertEquals(errorEmailNotification.getText(), "Brak konta biznesowego na podany email");
+        Assert.assertEquals(errorEmailNotification.getText(), "Wysyłanie wiadomości nie powiodło się, sprawdź poprawność adresu email");
         verify_remindPasswordPage();
         return this;
     }

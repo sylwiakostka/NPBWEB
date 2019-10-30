@@ -28,22 +28,22 @@ public class LoginPageTests extends BaseTests {
     }
 
     @Test(dataProvider = "correctDataLogin", dataProviderClass = LogUsersDataProvider.class)
-    public void should_login_as_employee_and_logout(String username, String password, String businessPartnerName)  {
+    public void should_login_as_employee_and_logout(String username, String password) throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_employee(username, password)
-                .verify_dashboardPge_for_employee(businessPartnerName)
+                .verify_dashboardPge_for_employee()
                 .logout();
 
     }
 
 
     @Test(dataProvider = "correctDataFromExcel", dataProviderClass = LogUsersDataProvider.class)
-    public void should_login_as_employee_and_logout_excel(String username, String password, String businessPartnerName)  {
+    public void should_login_as_employee_and_logout_excel(String username, String password) throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_employee(username, password)
-                .verify_dashboardPge_for_employee(businessPartnerName)
+                .verify_dashboardPge_for_employee()
                 .logout();
 
     }

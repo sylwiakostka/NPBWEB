@@ -6,7 +6,7 @@ public class LogUsersDataProvider {
 
     @DataProvider(name = "correctDataLogin")
     public Object[][] correctDataLogIn() {
-        return new Object[][]{{"jolakama666@gmail.com", "123456", "Karp"}};
+        return new Object[][]{{"jolakama666@gmail.com", "123456"}};
     }
 
 
@@ -22,7 +22,7 @@ public class LogUsersDataProvider {
 
     @DataProvider(name="correctDataFromExcel")
     public Object[][] correctDataFromExcel() throws Exception{
-        Object[][] testObjArray = ExcelUtils.getData("C://Users//user//Desktop//NPB//src//test//java//NPB//tests//Excels//users_employee.xlsx", "users");
+        Object[][] testObjArray = ExcelUtils.getData("C://Users//user//Desktop//NPBWEB//src//test//java//tests//Excels//users_employes.xlsx", "users");
         return (testObjArray);
     }
 

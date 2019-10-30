@@ -17,14 +17,14 @@ public class RemindPasswordPageTests extends BaseTests {
     }
 
     @Test
-    public void should_change_password_and_login_as_employee() {
+    public void should_change_password_and_login_as_employee() throws InterruptedException {
         new LoginPage(driver)
                 .go_to_remindPasswordPage();
         String newPsw = new RemindPasswordPage(driver).remind_password_and_get_new();
         System.out.println(newPsw);
         new LoginPage(driver)
                 .login_with_new_password(newPsw)
-                .verify_dashboardPge_for_employee("Novum");
+                .verify_dashboardPge_for_employee();
     }
 
     @Test

@@ -34,7 +34,7 @@ public class BasePage {
         wait.until(ExpectedConditions.textToBePresentInElementValue(element,textInElement));
     }
 
-    protected void waitForVisibilityOfElement2(List<WebElement> elements) {
+    protected void waitForVisibilityOfElements(List<WebElement> elements) {
         List<WebElement> waitElement = null;
 
 
@@ -97,16 +97,22 @@ public class BasePage {
         });
     }
 
-    protected void findElementFromUlListByTextAndClick(String textToFind){
+    protected void findElementFromUlListByTextAndClick(String textToFind) throws InterruptedException {
         WebElement ulClass = driver.findElement(By.xpath("//ul[@class='open']"));
         List<WebElement> liList = ulClass.findElements(By.tagName("li"));
+        Thread.sleep(1000);
+        waitForVisibilityOfElements(liList);
         for (WebElement li : liList) {
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            String text = (String) js.executeScript("return arguments[0].innerText", li);
-            System.out.println(text);
-            if (text.equals(textToFind)) {
-                li.click();
+            try {
+                String text = (String) js.executeScript("return arguments[0].innerText", li);
+                System.out.println(text);
+                if (text.equals(textToFind)) {
+                    li.click();
+                }
             }
+            catch(StaleElementReferenceException e) {}
+
         }
 
 

@@ -121,7 +121,7 @@ public class MpkPage extends BasePage {
         waitForPresenceOfElement(profilesButtonHeader);
         waitForPresenceOfElement(profilesButtonHeader);
         waitForPresenceOfElement(officesButtonHeader);
-        Assert.assertTrue(mpkHeader.getText().contains("Zarządzanie MPK - firma "));
+        Assert.assertTrue(mpkHeader.getText().contains("Zarządzanie MPK - firma"));
         Assert.assertEquals(mpkButtonHeader.getText(), "MPK");
         Assert.assertEquals(profilesButtonHeader.getText(), "Profile");
         Assert.assertEquals(projectsButtonHeader.getText(), "Projekty");

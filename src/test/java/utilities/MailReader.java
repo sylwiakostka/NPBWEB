@@ -7,8 +7,8 @@ import java.util.Properties;
 
 public class MailReader {
 
-    public static final String EMAIL = System.getenv("EMAIL_USERNAME");
-    public static final String PASSWORD = System.getenv("EMAIL_PASSWORD");
+//    public static final String EMAIL = System.getenv("EMAIL_USERNAME");
+//    public static final String PASSWORD = System.getenv("EMAIL_PASSWORD");
 
     public static void readMail() throws Exception {
         Properties props = System.getProperties();
@@ -16,7 +16,7 @@ public class MailReader {
 
         Session session = Session.getDefaultInstance(props, null);
         Store store = session.getStore("imaps");
-        store.connect("imap.gmail.com", EMAIL, PASSWORD);
+        store.connect("imap.gmail.com", "jolakama666@gmail.com", "jolcia666");
 
         Folder folder = store.getFolder("INBOX");
         folder.open(Folder.READ_WRITE);

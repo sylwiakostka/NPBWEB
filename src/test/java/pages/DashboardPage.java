@@ -50,11 +50,13 @@ public class DashboardPage extends BasePage {
     private WebElement companyName;
 
     @FindBy(xpath = "//a[@href='/manage']//span[.='Zarządzanie']")
-    private WebElement manageButtonnn;
+    private WebElement manageButton;
 
+    @FindBy(xpath = "//a[@href='/order']//span[.='Dla siebie']")
+    private WebElement orderForMyselfButon;
 
     @Step
-    public DashboardPage verify_dashboardPge_for_employee(String businessPartnerName) {
+    public DashboardPage verify_dashboardPge_for_employee() throws InterruptedException {
         waitForPresenceOfElement(dashboardSection);
         waitForPresenceOfElement(orderTaxiSection);
         waitForVisibilityOfElement(menuSection);
@@ -63,27 +65,24 @@ public class DashboardPage extends BasePage {
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
-        waitForPresenceOfElements(menuButtonList);
+        Thread.sleep(1000);
+        waitForVisibilityOfElements(menuButtonList);
         for (WebElement element : menuButtonList) {
             actualTexts.add(element.getText());
         }
-        Assert.assertEquals(expectedTexts.toString(), actualTexts.toString());
-        System.out.println(expectedTexts.toString() + " " + actualTexts.toString());
+        Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
+        System.out.println(actualTexts.toString()+" " +expectedTexts.toString() );
 
-        Assert.assertTrue(orderForEmployeeButton.isDisplayed());
-        Assert.assertTrue(orderForGuestButton.isDisplayed());
-        Assert.assertEquals(orderForEmployeeButton.getText(), "DLA PRACOWNIKÓW");
-        Assert.assertEquals(orderForGuestButton.getText(), "DLA GOŚCI");
-
-        Assert.assertTrue(companyName.isDisplayed());
-        Assert.assertEquals(companyName.getText(), businessPartnerName);
+        Assert.assertTrue(orderForMyselfButon.isDisplayed());
+        Assert.assertEquals(orderForMyselfButon.getText(), "DLA SIEBIE");
 
         return this;
     }
 
 
     @Step
-    public DashboardPage verify_dashboardPge_for_admin(String businessPartnerName) {
+    public DashboardPage verify_dashboardPge_for_admin(String businessPartnerName) throws InterruptedException {
+        Thread.sleep(1000);
         waitForVisibilityOfElement(dashboardSection);
         waitForPresenceOfElement(orderTaxiSection);
         waitForPresenceOfElement(menuSection);
@@ -95,7 +94,7 @@ public class DashboardPage extends BasePage {
         for (WebElement element : menuButtonList) {
             actualTexts.add(element.getText());
         }
-        Assert.assertEquals(expectedTexts.toString(), actualTexts.toString());
+        Assert.assertEquals(actualTexts.toString(),expectedTexts.toString());
         System.out.println(expectedTexts.toString() + " " + actualTexts.toString());
 
         Assert.assertTrue(orderForEmployeeButton.isDisplayed());
@@ -121,7 +120,8 @@ public class DashboardPage extends BasePage {
     }
 
     @Step
-    public MpkPage go_to_MpkPage() {
+    public MpkPage go_to_MpkPage() throws InterruptedException {
+        Thread.sleep(1000);
         waitForPresenceOfElement(manageButton);
         waitForElementToBeClickable(manageButton);
         manageButton.click();
