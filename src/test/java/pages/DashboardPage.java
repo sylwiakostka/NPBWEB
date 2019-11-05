@@ -1,14 +1,15 @@
 package pages;
 
 import com.google.zxing.*;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utilities.JsHelper;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,7 +24,6 @@ public class DashboardPage extends BasePage {
     public DashboardPage(WebDriver driver) {
         super(driver);
     }
-
 
     @FindBy(className = "dashboard")
     private WebElement dashboardSection;
@@ -55,6 +55,13 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@href='/order']//span[.='Dla siebie']")
     private WebElement orderForMyselfButon;
 
+    @FindBy(xpath = "//ul[@class='nav-items']//a[@href='/ordered']")
+    private WebElement orderedTaxiButton;
+
+
+//    @FindBy(xpath = "//a[@href='/ordered']//span[.='Zamówione taksówki']")
+//    private WebElement orderedTaxiButton;
+
     @Step
     public DashboardPage verify_dashboardPge_for_employee() throws InterruptedException {
         waitForPresenceOfElement(dashboardSection);
@@ -65,13 +72,12 @@ public class DashboardPage extends BasePage {
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
-        Thread.sleep(1000);
+        waitForPresenceOfElements(menuButtonList);
         waitForVisibilityOfElements(menuButtonList);
         for (WebElement element : menuButtonList) {
             actualTexts.add(element.getText());
         }
         Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
-        System.out.println(actualTexts.toString()+" " +expectedTexts.toString() );
 
         Assert.assertTrue(orderForMyselfButon.isDisplayed());
         Assert.assertEquals(orderForMyselfButon.getText(), "DLA SIEBIE");
@@ -91,11 +97,12 @@ public class DashboardPage extends BasePage {
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
+        waitForPresenceOfElements(menuButtonList);
+        waitForVisibilityOfElements(menuButtonList);
         for (WebElement element : menuButtonList) {
             actualTexts.add(element.getText());
         }
-        Assert.assertEquals(actualTexts.toString(),expectedTexts.toString());
-        System.out.println(expectedTexts.toString() + " " + actualTexts.toString());
+        Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
 
         Assert.assertTrue(orderForEmployeeButton.isDisplayed());
         Assert.assertTrue(orderForGuestButton.isDisplayed());
@@ -156,7 +163,7 @@ public class DashboardPage extends BasePage {
 
         elementWithLinkToDownloadPage.click();
 
-        ArrayList<String> tabs = new ArrayList (driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         waitForPresenceOfElement(driver.findElement(By.xpath("//h1[.='Wyślij sobie link za darmo']")));
 
@@ -168,10 +175,21 @@ public class DashboardPage extends BasePage {
     }
 
     @Step
-    public OrderForEmployeePage go_to_orderForEmployeePage(){
+    public OrderForEmployeePage go_to_orderForEmployeePage() {
         orderForEmployeeButton.click();
         return new OrderForEmployeePage(driver);
     }
+
+
+    @Step
+    public OrderedTaxiPage go_to_orderedTaxiPage() throws InterruptedException {
+        Thread.sleep(1000);
+        orderedTaxiButton.click();
+        return new OrderedTaxiPage(driver);
+    }
+
+
+
 }
 
 

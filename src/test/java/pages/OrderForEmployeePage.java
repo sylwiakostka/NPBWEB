@@ -7,13 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import utilities.DataManipulations;
 import utilities.JsHelper;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -55,7 +52,7 @@ public class OrderForEmployeePage extends BasePage {
     @FindBy(xpath = "//div[@class='notifications']//p[.='Komentarz do zlecenia zbyt długi, maksymalna długość to 450 znaków']")
     private WebElement notificationsAboutTooLongComment;
 
-    @FindBy(xpath = "//button[@class='btn yellow small']/span[.='Wybierz']")
+    @FindBy(xpath = "//button[@class='btn yellow']/span[.='Zamawiam']")
     private WebElement orderButton;
 
     @FindBy(xpath = "//div[@class='password-modal success-order']")
@@ -106,7 +103,7 @@ public class OrderForEmployeePage extends BasePage {
     @FindBy(className = "access")
     private WebElement infoAboutWriteUs;
 
-    @FindBy (className = "more")
+    @FindBy(className = "more")
     private WebElement moreOptionsButton;
 
     @Step
@@ -136,7 +133,6 @@ public class OrderForEmployeePage extends BasePage {
             String text = (String) js.executeScript("return arguments[0].innerText", label);
             actualTexts.add(text);
         }
-        System.out.println(actualTexts);
         Assert.assertEquals(expectedTexts.toString(), actualTexts.toString());
         return this;
     }
@@ -154,6 +150,16 @@ public class OrderForEmployeePage extends BasePage {
     public String getPassengerName() {
         String passengerNameSelected = passengerNameField.getAttribute("value");
         return passengerNameSelected;
+    }
+
+    @Step
+    public String getProjectName() {
+        String projectNameSelected = projectField.getAttribute("value");
+        if (!projectNameSelected.isEmpty()) {
+            return projectNameSelected;
+        } else {
+            return "BRAK";
+        }
     }
 
 
@@ -227,7 +233,12 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public String getFinalAddress() {
         String finalAddress = finalAddressField.getAttribute("value");
-        return finalAddress;
+
+        if (!finalAddress.isEmpty()) {
+            return finalAddress;
+        } else {
+            return "";
+        }
     }
 
 
@@ -258,7 +269,6 @@ public class OrderForEmployeePage extends BasePage {
         WebElement time_future = driver.findElement(By.xpath("//label[@for='date2']"));
         time_future.click();
         WebElement calendar_hour = driver.findElement(By.xpath("//li[@class='react-datepicker__time-list-item']" + "[" + x + "]"));
-        System.out.println(calendar_hour.getText());
         calendar_hour.click();
         return this;
     }
@@ -279,7 +289,7 @@ public class OrderForEmployeePage extends BasePage {
         }
 
         WebElement calendar_hour = driver.findElement(By.xpath("//li[@class='react-datepicker__time-list-item']" + "[" + x + "]"));
-        System.out.println(calendar_hour.getText());
+
         calendar_hour.click();
         return this;
     }
@@ -287,7 +297,6 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public String getOrderTime() {
         String isTimeNowSelected = timeNow_ifIsChecked.getAttribute("checked");
-        System.out.println(isTimeNowSelected);
         String orderTimeText;
 
         if (isTimeNowSelected != null && isTimeNowSelected.equals("true")) {
@@ -297,7 +306,6 @@ public class OrderForEmployeePage extends BasePage {
             new JsHelper(driver).scrollDownPage();
             orderTimeText = futureOrderTimeFieldToGetValue.getAttribute("value");
         }
-        System.out.println(orderTimeText);
         return orderTimeText;
     }
 
@@ -335,7 +343,7 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
-    public String getComment() {
+    private String getComment() {
         String commentText = commentTextArea.getText();
         return commentText;
     }
@@ -355,7 +363,7 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
-    public String getNumberOfTaxisOrdered() {
+    private String getNumberOfTaxisOrdered() {
         int numberOfTaxisOrdered = listOfOrderedTaxis.size();
         String numberOfTaxisOrderedAsString = Integer.toString(numberOfTaxisOrdered);
         return numberOfTaxisOrderedAsString;
@@ -367,6 +375,7 @@ public class OrderForEmployeePage extends BasePage {
         return this;
     }
 
+
     @Step
     public OrderForEmployeePage verifyConfirmationOrderPopupWithAllInformation() {
 
@@ -377,14 +386,10 @@ public class OrderForEmployeePage extends BasePage {
         WebElement header = confirmationOrderPopup.findElement(By.tagName("h3"));
         Assert.assertEquals(header.getText(), "Zamówienie zakończone powodzeniem!");
 
-
         List<WebElement> popupInfosFromOrder = confirmationOrderPopup.findElements(By.xpath("//ul/li/strong"));
         for (WebElement info : popupInfosFromOrder) {
             actualTexts.add(info.getText());
         }
-
-        System.out.println("Expected: " + expectedTexts);
-        System.out.println("Actual: " + actualTexts);
 
         Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
         return this;
@@ -439,7 +444,7 @@ public class OrderForEmployeePage extends BasePage {
         for (int i = 0; i < listSize; i++) {
             passengerNames.add(employees.get(i));
         }
-        System.out.println(passengerNames);
+
 
         for (int i = 0; i < listSize; i++) {
             if (i < listSize - 1) {
@@ -496,7 +501,7 @@ public class OrderForEmployeePage extends BasePage {
 
         expectedTexts.add(getStartAddress());
         expectedTexts.add(getOrderTime());
-        System.out.println("Expected: " + expectedTexts);
+
 
         List<String> actualTexts = new ArrayList<String>();
 
@@ -508,7 +513,7 @@ public class OrderForEmployeePage extends BasePage {
         for (WebElement info : popupInfosFromOrder) {
             actualTexts.add(info.getText());
         }
-        System.out.println("Actual: " + actualTexts);
+
 
         return this;
     }
@@ -563,16 +568,27 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public OrderForEmployeePage deleteTextFromCommentTextArea() {
         while (commentTextArea.getText().length() > 0) {
-            commentTextArea.sendKeys(Keys.BACK_SPACE);
+            while (commentTextArea.getText().length() > 0) {
+                commentTextArea.sendKeys(Keys.BACK_SPACE);
+            }
         }
         return this;
     }
 
     @Step
-    public MoreOptionsPage openMoreOptionsAndVerifyButtonText(){
-        Assert.assertEquals(moreOptionsButton.getText(),"Więcej opcji");
+    public MoreOptionsPage openMoreOptionsAndVerifyButtonText() {
+        Assert.assertEquals(moreOptionsButton.getText(), "Więcej opcji");
         moreOptionsButton.click();
         return new MoreOptionsPage(driver);
     }
+
+    @Step
+    public OrderForEmployeePage scrollUp() throws InterruptedException {
+        Thread.sleep(2000);
+        Actions actions = new Actions(driver);
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).keyUp(Keys.CONTROL).perform();
+        return this;
+    }
+
 
 }

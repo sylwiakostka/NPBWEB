@@ -34,6 +34,10 @@ public class BasePage {
         wait.until(ExpectedConditions.textToBePresentInElementValue(element,textInElement));
     }
 
+    protected void waitForAtributeOfElement(WebElement element, String attribute, String valueOfAttribute) {
+        wait.until(ExpectedConditions.attributeContains(element,attribute, valueOfAttribute));
+    }
+
     protected void waitForVisibilityOfElements(List<WebElement> elements) {
         List<WebElement> waitElement = null;
 
@@ -106,7 +110,6 @@ public class BasePage {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             try {
                 String text = (String) js.executeScript("return arguments[0].innerText", li);
-                System.out.println(text);
                 if (text.equals(textToFind)) {
                     li.click();
                 }
