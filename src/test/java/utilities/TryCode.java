@@ -6,8 +6,12 @@ import java.util.List;
 
 public class TryCode {
     public static void main(String[] args) {
-        String orderTime = "Na teraz!";
-        String timeWithoutExclamationMark = orderTime.split("!")[0].trim().toUpperCase();
-        System.out.println(timeWithoutExclamationMark);
+        int amountOfDays = 60;
+        int listSize = 30;
+        int daysForNextMonth =amountOfDays - listSize;
+        while (daysForNextMonth>listSize){
+        daysForNextMonth = daysForNextMonth - listSize;
+        }
+        System.out.println(daysForNextMonth);
     }
 }

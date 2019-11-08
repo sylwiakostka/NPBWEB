@@ -63,7 +63,7 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .setPassengerName("Kuba Mors")
                 .setStartAddress("Wałbrzyska 5, Warszawa")
                 .scrollDownPage()
-                .selectOrderTime_future_add_days_from_now(35)
+                .selectOrderTime_future_add_days_from_now(80)
                 .clickOrderButton()
                 .verifyConfirmationOrderPopupWithOnlyRequiredInformation()
                 .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder();

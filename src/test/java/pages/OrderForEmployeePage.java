@@ -326,14 +326,14 @@ public class OrderForEmployeePage extends BasePage {
         }
         return isCorrectMonth;
     }
-    
+
     @Step
     public OrderForEmployeePage selectOrderTime_future_add_days_from_now(int amountOfDays) {
         new JsHelper(driver).scrollDownPage();
         WebElement time_future = driver.findElement(By.xpath("//label[@for='date2']"));
         time_future.click();
 
-        WebElement day_today = driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--007 react-datepicker__day--selected react-datepicker__day--today']"));
+        WebElement day_today = driver.findElement(By.xpath("//div[contains(@class, 'day--today')]"));
         int dayNumber = Integer.parseInt(day_today.getText());
         int chosenDay = dayNumber + amountOfDays;
         String chosenDayAsString = Integer.toString(chosenDay);
@@ -342,6 +342,12 @@ public class OrderForEmployeePage extends BasePage {
 
         int listSize = enableDays.size();
         int daysForNextMonth = amountOfDays - listSize;
+        while (daysForNextMonth>listSize){
+            daysForNextMonth = daysForNextMonth - listSize;
+            calendar_nextMonthButton.click();
+        }
+        System.out.println(daysForNextMonth);
+
         String daysForNextMonthAsString = Integer.toString(daysForNextMonth);
 
         boolean isCorrectMonth = setClickOnCorrectDay(enableDays, chosenDayAsString);
