@@ -31,7 +31,7 @@ public class OrderForEmployeePageTests extends BaseTests {
     }
 
     @Test
-    public void should_order_taxi_future() throws InterruptedException {
+    public void should_order_taxi_future_today() throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()
@@ -51,6 +51,25 @@ public class OrderForEmployeePageTests extends BaseTests {
     }
 
     @Test
+    public void should_order_taxi_future_nextDay() throws InterruptedException {
+        new LoginPage(driver)
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC")
+                .verify_dashboardPge_for_admin("ABC")
+                .go_to_orderForEmployeePage()
+                .verifyOrderForEmployeePage()
+                .verifyOrderTaxiPageLabelNames()
+                .setPassengerName("Kuba Mors")
+                .setStartAddress("Wałbrzyska 5, Warszawa")
+                .scrollDownPage()
+                .selectOrderTime_future_add_days_from_now(35)
+                .clickOrderButton()
+                .verifyConfirmationOrderPopupWithOnlyRequiredInformation()
+                .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder();
+    }
+
+    @Test
     public void should_order_more_than_one_taxi_now() throws InterruptedException {
         List<String> employeesToOrderTaxi = Arrays.asList("Julek Angielski", "Kuba Mors", "Zuzia Nowak");
         new LoginPage(driver)
@@ -63,6 +82,7 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .verifyOrderTaxiPageLabelNames()
                 .orderMoreThanOneTaxi(employeesToOrderTaxi)
                 .setStartAddressByGeolocation()
+                .verifyIsFinalAddressLabelAbsent()
                 .scrollDownPage()
                 .clickOrderButton()
                 .verifyConfirmationOrderPopupWithOnlyRequiredInformationAndMoreThanOneTaxi();
@@ -212,7 +232,7 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .verifyOrderTaxiPageLabelNames()
                 .setPassengerName("Janusz Stary")
                 .setStartAddressByGeolocation()
-                .selectOrderTime_future_add_hours_from_now(3)
+                .selectOrderTime_future_add_days_from_now(26)
                 .selectOrderTime_now()
                 .clickOrderButton()
                 .verifyConfirmationOrderPopupWithOnlyRequiredInformation()

@@ -73,7 +73,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public LoginPage login_as_superAdmin() {
+    public LoginPage login_as_superAdmin() throws InterruptedException {
         waitForPresenceOfElement(usernameField);
         waitForPresenceOfElement(passwordField);
         usernameField.clear();
@@ -81,7 +81,7 @@ public class LoginPage extends BasePage {
         passwordField.clear();
         passwordField.sendKeys(SUPER_ADMIN_PASSWORD);
         loginButton.click();
-        waitForPresenceOfElement(correctLoginNotifications);
+        Thread.sleep(1000);
         Assert.assertEquals(correctLoginNotifications.getText(), "Zalogowano poprawnie.");
         return this;
     }

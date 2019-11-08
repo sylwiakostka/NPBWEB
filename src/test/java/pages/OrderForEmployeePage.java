@@ -106,6 +106,12 @@ public class OrderForEmployeePage extends BasePage {
     @FindBy(className = "more")
     private WebElement moreOptionsButton;
 
+    @FindBy(xpath = "//button[@class='btn yellow']/span[.='Zapisz']")
+    private WebElement saveEditedOrderButton;
+
+    @FindBy(xpath = "//button[@class='react-datepicker__navigation react-datepicker__navigation--next react-datepicker__navigation--next--with-time']")
+    private WebElement calendar_nextMonthButton;
+
     @Step
     public OrderForEmployeePage verifyOrderForEmployeePage() {
 
@@ -138,6 +144,21 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
+    public OrderForEmployeePage verifyIsFinalAddressLabelAbsent() {
+
+        List<String> actualTexts = new ArrayList<String>();
+
+        List<WebElement> labels = driver.findElements(By.xpath("//div[@class='input']//label | //div[@class='input start']//label"));
+        for (WebElement label : labels) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            String text = (String) js.executeScript("return arguments[0].innerText", label);
+            actualTexts.add(text);
+        }
+        Assert.assertFalse(actualTexts.toString().contains("Adres docelowy:"));
+        return this;
+    }
+
+    @Step
     public OrderForEmployeePage setPassengerName(String passengerName) throws InterruptedException {
         passengerNameField.click();
         findElementFromUlListByTextAndClick(passengerName);
@@ -148,14 +169,13 @@ public class OrderForEmployeePage extends BasePage {
 
     @Step
     public String getPassengerName() {
-        String passengerNameSelected = passengerNameField.getAttribute("value");
-        return passengerNameSelected;
+        return passengerNameField.getAttribute("value");
     }
 
     @Step
     public String getProjectName() {
         String projectNameSelected = projectField.getAttribute("value");
-        if (!projectNameSelected.isEmpty()) {
+        if (projectNameSelected.length() > 0) {
             return projectNameSelected;
         } else {
             return "BRAK";
@@ -227,7 +247,7 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public String getStartAddress() {
         String startAddress = startAddressField.getAttribute("value");
-        return startAddress;
+        return startAddress.replaceAll("  ", " ");
     }
 
     @Step
@@ -235,7 +255,7 @@ public class OrderForEmployeePage extends BasePage {
         String finalAddress = finalAddressField.getAttribute("value");
 
         if (!finalAddress.isEmpty()) {
-            return finalAddress;
+            return finalAddress.replaceAll("\\s+", " ");
         } else {
             return "";
         }
@@ -254,8 +274,9 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
-    public OrderForEmployeePage selectOrderTime_now() {
-        new JsHelper(driver).scrollDownPage();
+    public OrderForEmployeePage selectOrderTime_now() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToBeClickable(time_now_radio);
         time_now_radio.click();
         return this;
     }
@@ -294,6 +315,46 @@ public class OrderForEmployeePage extends BasePage {
         return this;
     }
 
+
+    private boolean setClickOnCorrectDay(List<WebElement> enableDays, String days) {
+        boolean isCorrectMonth = false;
+        for (WebElement day : enableDays) {
+            if (day.getText().equals(days)) {
+                isCorrectMonth = true;
+                day.click();
+            }
+        }
+        return isCorrectMonth;
+    }
+    
+    @Step
+    public OrderForEmployeePage selectOrderTime_future_add_days_from_now(int amountOfDays) {
+        new JsHelper(driver).scrollDownPage();
+        WebElement time_future = driver.findElement(By.xpath("//label[@for='date2']"));
+        time_future.click();
+
+        WebElement day_today = driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--007 react-datepicker__day--selected react-datepicker__day--today']"));
+        int dayNumber = Integer.parseInt(day_today.getText());
+        int chosenDay = dayNumber + amountOfDays;
+        String chosenDayAsString = Integer.toString(chosenDay);
+
+        List<WebElement> enableDays = driver.findElements(By.xpath("//div[contains(normalize-space(@class), 'react-datepicker__day react-datepicker__day') and not(contains(@class, 'react-datepicker__day--disabled'))and not(contains(@class, 'react-datepicker__day--outside-month'))]"));
+
+        int listSize = enableDays.size();
+        int daysForNextMonth = amountOfDays - listSize;
+        String daysForNextMonthAsString = Integer.toString(daysForNextMonth);
+
+        boolean isCorrectMonth = setClickOnCorrectDay(enableDays, chosenDayAsString);
+        while (!isCorrectMonth) {
+            calendar_nextMonthButton.click();
+            isCorrectMonth = setClickOnCorrectDay(enableDays, daysForNextMonthAsString);
+            System.out.println(isCorrectMonth);
+        }
+        commentTextArea.click();
+        return this;
+    }
+
+
     @Step
     public String getOrderTime() {
         String isTimeNowSelected = timeNow_ifIsChecked.getAttribute("checked");
@@ -317,10 +378,10 @@ public class OrderForEmployeePage extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String firstProjectFromListName = (String) js.executeScript("return arguments[0].innerText", firstProjectFromList);
         firstProjectFromList.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         waitForTextToBePresentInElementValue(projectField, firstProjectFromListName);
         String firstProjectNameSelected = projectField.getAttribute("value");
-        Assert.assertEquals(firstProjectNameSelected, firstProjectFromListName);
+        System.out.println(firstProjectNameSelected);
         return this;
     }
 
@@ -363,6 +424,14 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
+    public OrderForEmployeePage clickSaveEditedOrderButton() throws InterruptedException {
+        new JsHelper(driver).scrollDownPage();
+        Thread.sleep(1000);
+        saveEditedOrderButton.click();
+        return this;
+    }
+
+    @Step
     private String getNumberOfTaxisOrdered() {
         int numberOfTaxisOrdered = listOfOrderedTaxis.size();
         String numberOfTaxisOrderedAsString = Integer.toString(numberOfTaxisOrdered);
@@ -378,13 +447,12 @@ public class OrderForEmployeePage extends BasePage {
 
     @Step
     public OrderForEmployeePage verifyConfirmationOrderPopupWithAllInformation() {
-
-        List<String> expectedTexts = Arrays.asList(getNumberOfTaxisOrdered(), getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTime(), getComment());
-        List<String> actualTexts = new ArrayList<String>();
-
         waitForPresenceOfElement(confirmationOrderPopup);
         WebElement header = confirmationOrderPopup.findElement(By.tagName("h3"));
         Assert.assertEquals(header.getText(), "Zamówienie zakończone powodzeniem!");
+
+        List<String> expectedTexts = Arrays.asList(getNumberOfTaxisOrdered(), getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTime(), getComment());
+        List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> popupInfosFromOrder = confirmationOrderPopup.findElements(By.xpath("//ul/li/strong"));
         for (WebElement info : popupInfosFromOrder) {
@@ -394,6 +462,26 @@ public class OrderForEmployeePage extends BasePage {
         Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
         return this;
     }
+
+
+    @Step
+    public OrderForEmployeePage editing_verifyConfirmationOrderPopupWithAllInformation() {
+        waitForPresenceOfElement(confirmationOrderPopup);
+        WebElement header = confirmationOrderPopup.findElement(By.tagName("h3"));
+        Assert.assertEquals(header.getText(), "Zaktualizowano zamówienie!");
+
+        List<String> expectedTexts = Arrays.asList(getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTime(), getComment());
+        List<String> actualTexts = new ArrayList<String>();
+
+        List<WebElement> popupInfosFromOrder = confirmationOrderPopup.findElements(By.xpath("//ul/li/strong"));
+        for (WebElement info : popupInfosFromOrder) {
+            actualTexts.add(info.getText());
+        }
+
+        Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
+        return this;
+    }
+
 
     @Step
     public OrderForEmployeePage verifyConfirmationOrderPopupWithOnlyRequiredInformation() {
@@ -590,5 +678,67 @@ public class OrderForEmployeePage extends BasePage {
         return this;
     }
 
+    @Step
+    public OrderForEmployeePage editOrder_verifyIfDataIsCorrect(String passengerName, String startAddress, String
+            orderTime, String projectName, String finalAddress) {
+        Assert.assertEquals(passengerName, getPassengerName());
+        Assert.assertEquals(startAddress, getStartAddress());
+        Assert.assertEquals(orderTime, getOrderTime());
+        Assert.assertEquals(finalAddress, getFinalAddress());
+        Assert.assertEquals(projectName, getProjectName());
+        return this;
+    }
+
+    @Step
+    private OrderForEmployeePage clearField(WebElement fieldToClear) {
+        while (fieldToClear.getAttribute("value").length() > 0) {
+            fieldToClear.sendKeys(Keys.BACK_SPACE);
+        }
+        return this;
+    }
+
+    @Step
+    public OrderForEmployeePage editPassengerName(String passengerName) throws InterruptedException {
+        Thread.sleep(1000);
+        clearField(passengerNameField);
+        passengerNameField.sendKeys(passengerName);
+        passengerNameField.click();
+        findElementFromUlListByTextAndClick(passengerName);
+        Thread.sleep(1000);
+        Assert.assertEquals(passengerNameField.getAttribute("value"), passengerName);
+        return this;
+    }
+
+    @Step
+    public OrderForEmployeePage editStartAddress(String startAddress) throws InterruptedException {
+        Thread.sleep(2000);
+        clearField(startAddressField);
+        startAddressField.sendKeys(startAddress);
+        startAddressField.click();
+        findElementFromUlListByTextAndClick(startAddress);
+        Assert.assertEquals(startAddressField.getAttribute("value"), startAddress);
+        return this;
+    }
+
+    @Step
+    public OrderForEmployeePage editFinalAddress(String finalAddress) throws InterruptedException {
+        Thread.sleep(2000);
+        clearField(finalAddressField);
+        finalAddressField.click();
+        finalAddressField.sendKeys(finalAddress);
+        finalAddressField.click();
+        findElementFromUlListByTextAndClick(finalAddress);
+        Assert.assertEquals(finalAddressField.getAttribute("value"), finalAddress);
+        return this;
+    }
+
+    @Step
+    public OrderForEmployeePage editComment(String comment) {
+        clearField(commentTextArea);
+        commentTextArea.sendKeys(comment);
+        String commentAdded = commentTextArea.getText();
+        Assert.assertEquals(commentAdded, comment);
+        return this;
+    }
 
 }

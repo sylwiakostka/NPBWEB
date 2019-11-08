@@ -1,10 +1,7 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
@@ -86,10 +83,13 @@ public class OrderedTaxiPage extends BasePage {
     private boolean verifyIfOrderIsPresent_future(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
         for (WebElement order : orderList) {
             if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName)
-                    && order.getText().contains(finalAddress) && order.getText().contains("ZLECENIE TERMINOWE")) {
+                    && order.getText().contains(finalAddress))
+
+            {
                 return true;
             }
         }
+        System.out.println("nie ma zlecenia");
         return false;
     }
 
@@ -109,9 +109,9 @@ public class OrderedTaxiPage extends BasePage {
         for (WebElement order : orderList) {
             if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
                 order.findElement(By.xpath("//button[@class='btn yellow small']/span[.='Odwołaj!']")).click();
+            } else {
+                System.out.println("brak zlecenia");
             }
-            else {
-                System.out.println("brak zlecenia");}
         }
         return this;
     }
@@ -121,16 +121,16 @@ public class OrderedTaxiPage extends BasePage {
         for (WebElement order : orderList) {
             if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_now(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
                 order.findElement(By.xpath("//button[@class='btn yellow small']/span[.='Odwołaj!']")).click();
+            } else {
+                System.out.println("brak zlecenia");
             }
-            else {
-                System.out.println("brak zlecenia");}
         }
         return this;
     }
 
     @Step
-    public OrderedTaxiPage confirmOrderCancelation() {
-        Assert.assertEquals(cancelOrderConfirmationPopup.getText(),"Czy na pewno chcesz anulować przejazd?");
+    public OrderedTaxiPage confirmOrderCancel() {
+        Assert.assertEquals(cancelOrderConfirmationPopup.getText(), "Czy na pewno chcesz anulować przejazd?");
         confirmCancelationButton.click();
         waitForVisibilityOfElement(notificationOrderCanceled);
         Assert.assertTrue(notificationOrderCanceled.isDisplayed());
@@ -138,13 +138,11 @@ public class OrderedTaxiPage extends BasePage {
     }
 
     @Step
-    public OrderedTaxiPage denyOrderCancelation() {
-        Assert.assertEquals(cancelOrderConfirmationPopup.getText(),"Czy na pewno chcesz anulować przejazd?");
+    public OrderedTaxiPage denyOrderCancel() {
+        Assert.assertEquals(cancelOrderConfirmationPopup.getText(), "Czy na pewno chcesz anulować przejazd?");
         denyCancelationButton.click();
         return this;
     }
-
-
 
 
     @Step
@@ -225,5 +223,32 @@ public class OrderedTaxiPage extends BasePage {
         return this;
     }
 
-
+    @Step
+    public OrderForEmployeePage chooseOrderAndClickEditOrderButton(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
+        waitForVisibilityOfElements(orderList);
+        try {
+            for (WebElement order : orderList) {
+                if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
+                    int index = orderList.indexOf(order)+1;
+                    driver.findElement(By.xpath("//ul[@class='ordered-list']/li" + "[" + index + "]" + "//a[@class='btn transparent small']/span[.='Zmień']")).click();
+                } else {
+                    System.out.println("brak zlecenia");
+                }
+            }
+        } catch (StaleElementReferenceException ex) {
+            for (WebElement order : orderList) {
+                if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
+                    int index = orderList.indexOf(order);
+                    System.out.println(index);
+                    order.findElement(By.xpath("//a[@class='btn transparent small']/span[.='Zmień']" + "[" + index + "]")).click();
+                } else {
+                    System.out.println("brak zlecenia");
+                }
+            }
+        }
+        return new OrderForEmployeePage(driver);
+    }
 }
+
+
+

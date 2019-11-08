@@ -232,7 +232,7 @@ public class OrderedTaxiPageTests extends BaseTests {
                 .verifyOrderedTaxiPage()
                 .verifyIfOrderedTaxiSignIsPresentOnButton()
                 .chooseOrderForNowAnClickCancelButton(passengerName, startAddress, orderTime, projectName, finalAddress)
-                .confirmOrderCancelation();
+                .confirmOrderCancel();
     }
 
     @Test
@@ -272,7 +272,7 @@ public class OrderedTaxiPageTests extends BaseTests {
                 .verifyOrderedTaxiPage()
                 .verifyIfOrderedTaxiSignIsPresentOnButton()
                 .chooseFutureOrderAndClickCancelButton(passengerName, startAddress, orderTime, projectName, finalAddress)
-                .confirmOrderCancelation();
+                .confirmOrderCancel();
     }
 
     @Test
@@ -310,8 +310,9 @@ public class OrderedTaxiPageTests extends BaseTests {
                 .go_to_orderedTaxiPage()
                 .verifyOrderedTaxiPage()
                 .verifyIfOrderedTaxiSignIsPresentOnButton()
+                .confirmForNowOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress)
                 .chooseOrderForNowAnClickCancelButton(passengerName, startAddress, orderTime, projectName, finalAddress)
-                .denyOrderCancelation()
+                .denyOrderCancel()
                 .confirmForNowOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress);
     }
 
@@ -331,10 +332,10 @@ public class OrderedTaxiPageTests extends BaseTests {
                 .verifyOrderForEmployeePage()
                 .verifyOrderTaxiPageLabelNames()
                 .setPassengerName("Kuba Mors")
-                .setStartAddress("Prosta 1, Warszawa")
-                .setFinalAddress("Wspólna 1, Warszawa")
+                .setStartAddress("Prosta 6, Warszawa")
+                .setFinalAddress("Wspólna 11, Warszawa")
                 .scrollDownPage()
-                .selectOrderTime_future_add_minutes_from_now(190)
+                .selectOrderTime_future_add_minutes_from_now(300)
                 .setProject_firstFromList()
                 .addComment("nic a nic");
         passengerName = new OrderForEmployeePage(driver).getPassengerName();
@@ -353,8 +354,72 @@ public class OrderedTaxiPageTests extends BaseTests {
                 .verifyIfOrderedTaxiSignIsPresentOnButton()
                 .confirmFutureOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress)
                 .chooseFutureOrderAndClickCancelButton(passengerName, startAddress, orderTime, projectName, finalAddress)
-                .denyOrderCancelation()
+                .denyOrderCancel()
                 .confirmFutureOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress);
     }
+
+    @Test
+    public void should_edit_future_order() throws InterruptedException {
+        String projectName;
+        String orderTime;
+        String passengerName;
+        String startAddress;
+        String finalAddress;
+        new LoginPage(driver)
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC")
+                .verify_dashboardPge_for_admin("ABC")
+                .go_to_orderForEmployeePage()
+                .verifyOrderForEmployeePage()
+                .verifyOrderTaxiPageLabelNames()
+                .setPassengerName("Kuba Mors")
+                .setStartAddress("Prosta 1, Warszawa")
+                .setFinalAddress("Hoża 1, Warszawa")
+                .scrollDownPage()
+                .selectOrderTime_future_add_hours_from_now(3)
+                .setProject_firstFromList()
+                .addComment("od klatki I")
+                .clickOrderButton();
+        passengerName = new OrderForEmployeePage(driver).getPassengerName();
+        startAddress = new OrderForEmployeePage(driver).getStartAddress();
+        finalAddress = new OrderForEmployeePage(driver).getFinalAddress();
+        projectName = new OrderForEmployeePage(driver).getProjectName();
+        orderTime = new OrderForEmployeePage(driver).getOrderTime();
+        new OrderForEmployeePage(driver)
+                .verifyConfirmationOrderPopupWithAllInformation()
+                .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder()
+                .scrollUp();
+        new DashboardPage(driver)
+                .go_to_orderedTaxiPage()
+                .verifyOrderedTaxiPage()
+                .verifyIfOrderedTaxiSignIsPresentOnButton()
+                .confirmFutureOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress)
+                .chooseOrderAndClickEditOrderButton(passengerName, startAddress, orderTime, projectName, finalAddress)
+                .verifyOrderTaxiPageLabelNames()
+                .verifyOrderForEmployeePage()
+                .editOrder_verifyIfDataIsCorrect(passengerName, startAddress, orderTime, projectName, finalAddress)
+                .editPassengerName("Zuzia Nowak")
+                .editStartAddress("Hoża 15, Warszawa")
+                .editFinalAddress("Al. Jerozolimskie 154, Warszawa")
+                .selectOrderTime_future_add_days_from_now(3)
+                .editComment("po edycji");
+        passengerName = new OrderForEmployeePage(driver).getPassengerName();
+        startAddress = new OrderForEmployeePage(driver).getStartAddress();
+        finalAddress = new OrderForEmployeePage(driver).getFinalAddress();
+        projectName = new OrderForEmployeePage(driver).getProjectName();
+        orderTime = new OrderForEmployeePage(driver).getOrderTime();
+        new OrderForEmployeePage(driver)
+                .clickSaveEditedOrderButton()
+                .editing_verifyConfirmationOrderPopupWithAllInformation()
+                .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder()
+                .scrollUp();
+        new DashboardPage(driver)
+                .go_to_orderedTaxiPage()
+                .verifyOrderedTaxiPage()
+                .verifyIfOrderedTaxiSignIsAbsenteOnButton()
+                .confirmFutureOrderIsPresent(passengerName, startAddress, orderTime, projectName, finalAddress);
+    }
+
 
 }
