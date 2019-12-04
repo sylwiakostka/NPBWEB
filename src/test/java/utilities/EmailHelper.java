@@ -1,10 +1,13 @@
 package utilities;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,11 +36,11 @@ public class EmailHelper extends BasePage {
     @FindBy(tagName = "tbody")
     WebElement messageBody;
 
-    @FindBy(xpath = "//*[@class='zF']")
-    List<WebElement> unreadEmails;
+    @FindBy(xpath = "//*[@class='zA zE']//span[@class='bqe']")
+    List<WebElement> unreadEmailTitles;
 
     @FindBy(xpath = "//table[@role='presentation']//div[@role='listitem']")
-    WebElement mailContent;
+    List<WebElement> mailsContent;
 
     @FindBy(xpath = "//div[@id=':4']//div[@aria-label='Usuń']")
     WebElement deleteEmailButton;
@@ -46,37 +49,46 @@ public class EmailHelper extends BasePage {
     WebElement gmailLoginButton;
 
 
-    public String openMail_and_readCode() {
+    public String openMail_and_readCode(String email, String password) {
+
         driver.get("https://mail.google.com/mail/u/0/?tab=km#inbox");
         gmailLoginButton.click();
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(2));
+        waitForVisibilityOfElement(driver.findElement(By.id("headingText")));
         waitForPresenceOfElement(emailField);
-        emailField.sendKeys(EMAIL);
+        emailField.sendKeys(email);
         waitForPresenceOfElement(nextButton);
         nextButton.click();
         passwordField.clear();
-        passwordField.sendKeys(PASSWORD);
+        passwordField.sendKeys(password);
         waitForPresenceOfElement(nextButton);
-        nextButton.click();
+        try {
+            nextButton.click();
+        } catch (StaleElementReferenceException ex) {
+            nextButton.click();
+        }
         waitForPresenceOfElement(messageBody);
 
-        waitForPresenceOfElements(unreadEmails);
+        waitForPresenceOfElements(unreadEmailTitles);
 
 
-        String emailTitle = "itaxi";
+        String emailTitle = "Kod weryfikacyjny";
 
 
-        for (int i = 0; i < unreadEmails.size(); i++) {
-            if (unreadEmails.get(i).getText().equals(emailTitle)) {
-                System.out.println("Yes we have got mail form " + emailTitle);
-                unreadEmails.get(i).click();
+        for (int i = 0; i < unreadEmailTitles.size(); i++) {
+            if (unreadEmailTitles.get(i).getText().equals(emailTitle)) {
+                System.out.println("Yes we have got mail with title " + emailTitle);
+                unreadEmailTitles.get(i).click();
                 break;
             } else {
                 System.out.println("No mail form " + emailTitle);
             }
         }
 
-        String emailText = mailContent.getText();
-        String firstStage = emailText.split(": ")[1].trim();
+        int listSize = mailsContent.size();
+        String lastFromListText = mailsContent.get(listSize).getText();
+        String firstStage = lastFromListText.split(": ")[1].trim();
         String secondStage = firstStage.split("Odpowiedz")[0].trim();
         String code = secondStage;
         System.out.println(code);

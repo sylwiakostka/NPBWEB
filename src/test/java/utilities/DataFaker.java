@@ -22,5 +22,15 @@ public  class DataFaker {
         return email;
     }
 
+    public static String generate_fake_word(){
+        String email = fakeValuesService.regexify("[a-z1-9]{5}");
+        return email;
+    }
+
+    public static String generate_fake_password_only_numbers(){
+        String password = fakeValuesService.regexify("[1-9]{10}");
+        return password;
+    }
+
 
 }

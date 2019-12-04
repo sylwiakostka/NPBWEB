@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" line="671" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" line="681" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="743fa332-9854-4dea-9537-16977104958f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/EmployeesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/screenshots/CaptureScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utilities/CodeEncodeString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utilities/NumberFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/1826605c-6a69-4f59-81fa-30565e589793-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/20b09f04-2d42-43d8-99e3-67fd3c43da5a-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/43fd2c31-fc10-409a-bef2-071b1dd2bfd1-container.json" beforeDir="false" />
@@ -17,10 +22,44 @@
       <change beforePath="$PROJECT_DIR$/allure-results/b6c634cf-6c0e-4d27-accf-f36aa21344ab-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/dab76db9-6963-4215-80e8-e3d795bf6e3e-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/e54724f2-d5de-4db4-9eb2-c18221d69d32-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Excels/manage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/Excels/manage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/OrderForEmployeePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/DashboardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/DashboardPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MpkPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/MpkPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/OrderedTaxiPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/OrderedTaxiPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/ProfilesPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/ProfilesPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/RemindPasswordPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/RemindPasswordPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/DashboardPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/DashboardPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/MpkPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/MpkPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/ProfilesPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/ProfilesPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/RemindPasswordPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/RemindPasswordPageTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/DataFaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/DataFaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/EmailHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/EmailHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/TryCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/TryCode.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,20 +72,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrderForEmployeePage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java">
+      <file leaf-file-name="MoreOptionsPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="350" column="77" lean-forward="true" selection-start-line="350" selection-start-column="77" selection-end-line="350" selection-end-column="77" />
+            <state relative-caret-position="183">
+              <caret line="84" column="9" lean-forward="true" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderForEmployeePageTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderForEmployeePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="226" column="40" selection-start-line="226" selection-start-column="19" selection-end-line="226" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderForEmployeePageTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+            <state relative-caret-position="425">
+              <caret line="266" column="1" lean-forward="true" selection-start-line="266" selection-start-column="1" selection-end-line="266" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -63,27 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>//a[@href='/ordered']</find>
-      <find>up</find>
-      <find>sco</find>
-      <find>scroll</find>
-      <find>trim</find>
-      <find>sibl</find>
-      <find>Array</find>
-      <find>project</find>
-      <find>pro</find>
-      <find>get</find>
-      <find>BRAK</find>
-      <find>back_</find>
-      <find>notif</find>
-      <find>syst</find>
-      <find>sys</find>
-      <find>editOrder</find>
-      <find>edi</find>
-      <find>StaleElementReferenceException</find>
-      <find>+ &quot;[&quot; + x + &quot;]</find>
-      <find>setpass</find>
-      <find>setSt</find>
       <find>orderT</find>
       <find>comme</find>
       <find>startA</find>
@@ -93,6 +120,27 @@
       <find>setfin</find>
       <find>time</find>
       <find>futu</find>
+      <find>qrc</find>
+      <find>add</find>
+      <find>bool</find>
+      <find>boo</find>
+      <find>noti</find>
+      <find>not</find>
+      <find>contains</find>
+      <find>sibl</find>
+      <find>with</find>
+      <find>back_</find>
+      <find>edit_mpk_fields_and_try_to_add_existing_name</find>
+      <find>Aktywu</find>
+      <find>index</find>
+      <find>Edytu</find>
+      <find>arra</find>
+      <find>Ten profil ma przypisanych użytkowników</find>
+      <find>Edyc</find>
+      <find>open</find>
+      <find>name</find>
+      <find>moreo</find>
+      <find>startadd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,13 +150,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/OrderTaxiPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/OrderForEmployerPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/BaseTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/DataManipulations.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/ExcelUtils.java" />
@@ -117,44 +160,54 @@
         <option value="$PROJECT_DIR$/src/main/resources/orderTests.xml" />
         <option value="$PROJECT_DIR$/src/test/TestNgXML/orderTests.xml" />
         <option value="$PROJECT_DIR$/src/test/TestNgXML/parallel.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/LoginPageTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/MailReader.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/LogUsersDataProvider.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/ManageDataProvider.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/JsHelper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/BasePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/screenshots/CaptureScreenOfElement.java" />
+        <option value="$PROJECT_DIR$/src/test/java/screenshots/TryCode.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/screenshots/CaptureScreen.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utilities/CodeEncodeString.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/EmployeesPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utilities/NumberFormatter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/BasePage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1979" />
-    <option name="y" value="3" />
-    <option name="width" value="1900" />
-    <option name="height" value="1009" />
+    <option name="x" value="1941" />
+    <option name="y" value="116" />
+    <option name="width" value="1875" />
+    <option name="height" value="987" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,6 +247,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="screenshots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NPBWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -209,14 +270,29 @@
               <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NPBWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NPBWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-test-sources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NPB_API" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -247,18 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.OrderForEmployeePageTests.should_order_taxi_future_nextDay">
-    <configuration name="TryCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="utilities.TryCode" />
-      <module name="NPBWEB" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="utilities.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
+  <component name="RunManager" selected="TestNG.OrderForEmployeePageTests.should_verify_and_order_with_more_options">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -278,7 +343,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="OrderForEmployeePageTests.should_order_more_than_one_taxi_now" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderForEmployeePageTests.should_verify_and_order_with_more_options" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -291,7 +356,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.OrderForEmployeePageTests" />
-      <option name="METHOD_NAME" value="should_order_more_than_one_taxi_now" />
+      <option name="METHOD_NAME" value="should_verify_and_order_with_more_options" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -307,7 +372,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -319,8 +384,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.OrderForEmployeePageTests" />
-      <option name="METHOD_NAME" value="should_order_taxi_future_nextDay" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProfilesPageTests" />
+      <option name="METHOD_NAME" value="should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -336,7 +401,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="OrderedTaxiPageTests.should_dont_cancel_future_order" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfilesPageTests.should_edit_profile" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -348,8 +413,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.OrderedTaxiPageTests" />
-      <option name="METHOD_NAME" value="should_dont_cancel_future_order" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProfilesPageTests" />
+      <option name="METHOD_NAME" value="should_edit_profile" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -365,7 +430,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="OrderedTaxiPageTests.should_edit_future_order" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfilesPageTests.should_edit_profile_with_users_added" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -377,8 +442,37 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.OrderedTaxiPageTests" />
-      <option name="METHOD_NAME" value="should_edit_future_order" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProfilesPageTests" />
+      <option name="METHOD_NAME" value="should_edit_profile_with_users_added" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="ProfilesPageTests.should_try_to_delete_profile_with_users_added" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NPBWEB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProfilesPageTests" />
+      <option name="METHOD_NAME" value="should_try_to_delete_profile_with_users_added" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -441,19 +535,19 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.all" />
-      <item itemvalue="TestNG.OrderedTaxiPageTests.should_dont_cancel_future_order" />
-      <item itemvalue="TestNG.OrderedTaxiPageTests.should_edit_future_order" />
-      <item itemvalue="TestNG.OrderForEmployeePageTests.should_order_taxi_future_nextDay" />
-      <item itemvalue="TestNG.OrderForEmployeePageTests.should_order_more_than_one_taxi_now" />
-      <item itemvalue="Application.TryCode" />
+      <item itemvalue="TestNG.ProfilesPageTests.should_edit_profile" />
+      <item itemvalue="TestNG.ProfilesPageTests.should_try_to_delete_profile_with_users_added" />
+      <item itemvalue="TestNG.ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" />
+      <item itemvalue="TestNG.ProfilesPageTests.should_edit_profile_with_users_added" />
+      <item itemvalue="TestNG.OrderForEmployeePageTests.should_verify_and_order_with_more_options" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.OrderForEmployeePageTests.should_order_taxi_future_nextDay" />
-        <item itemvalue="Application.TryCode" />
-        <item itemvalue="TestNG.OrderForEmployeePageTests.should_order_more_than_one_taxi_now" />
-        <item itemvalue="TestNG.OrderedTaxiPageTests.should_edit_future_order" />
-        <item itemvalue="TestNG.OrderedTaxiPageTests.should_dont_cancel_future_order" />
+        <item itemvalue="TestNG.OrderForEmployeePageTests.should_verify_and_order_with_more_options" />
+        <item itemvalue="TestNG.ProfilesPageTests.should_edit_profile_with_users_added" />
+        <item itemvalue="TestNG.ProfilesPageTests.should_edit_profile" />
+        <item itemvalue="TestNG.ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" />
+        <item itemvalue="TestNG.ProfilesPageTests.should_try_to_delete_profile_with_users_added" />
       </list>
     </recent_temporary>
   </component>
@@ -471,61 +565,60 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 10m 01s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile - 2019.11.27 at 14h 06m 19s.xml">
+      <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 10m 54s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile - 2019.11.27 at 14h 07m 20s.xml">
+      <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 13m 07s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile - 2019.11.27 at 14h 20m 41s.xml">
+      <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 14m 22s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile - 2019.11.27 at 14h 22m 53s.xml">
+      <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 15m 37s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile - 2019.11.27 at 14h 24m 45s.xml">
+      <configuration name="ProfilesPageTests.should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.07 at 15h 16m 48s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_edit_profile - 2019.12.04 at 11h 58m 24s.xml">
+      <configuration name="ProfilesPageTests.should_edit_profile" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.08 at 09h 44m 26s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="ProfilesPageTests_should_edit_profile_with_users_added - 2019.12.04 at 12h 07m 58s.xml">
+      <configuration name="ProfilesPageTests.should_edit_profile_with_users_added" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.08 at 09h 51m 11s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="OrderForEmployeePageTests_should_verify_and_order_with_more_options - 2019.12.04 at 12h 27m 54s.xml">
+      <configuration name="OrderForEmployeePageTests.should_verify_and_order_with_more_options" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.08 at 09h 52m 10s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="OrderForEmployeePageTests_should_verify_and_order_with_more_options - 2019.12.04 at 12h 50m 36s.xml">
+      <configuration name="OrderForEmployeePageTests.should_verify_and_order_with_more_options" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="OrderForEmployeePageTests_should_order_taxi_future_nextDay - 2019.11.08 at 09h 53m 38s.xml">
-      <configuration name="OrderForEmployeePageTests.should_order_taxi_future_nextDay" configurationId="TestNG" />
+    <history-entry file="OrderForEmployeePageTests_should_verify_and_order_with_more_options - 2019.12.04 at 12h 57m 44s.xml">
+      <configuration name="OrderForEmployeePageTests.should_verify_and_order_with_more_options" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1979" y="3" width="1900" height="1009" extended-state="0" />
-    <editor active="true" />
+    <frame x="1918" y="71" width="1875" height="987" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32038835" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.31355932" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067115" side_tool="true" weight="0.34020618" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27240565" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3849879" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.832998" visible="true" weight="0.2451087" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.832998" visible="true" weight="0.25289255" />
       <window_info id="Structure" order="1" sideWeight="0.167002" side_tool="true" weight="0.23695652" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.24271844" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47150838" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -537,14 +630,14 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3818408" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.832998" visible="true" weight="0.23695652" />
       <window_info id="Structure" order="1" sideWeight="0.167002" side_tool="true" visible="true" weight="0.23695652" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3818408" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -554,7 +647,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3221393" />
@@ -567,86 +660,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/BaseTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/LoginPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/utilities/ReceiveMail.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/CaptureScreenshotOfElement.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/CompareScreenshots.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DataFaker.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Math.java">
@@ -657,13 +675,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/orderTests.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestNgXML/parallel.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -685,87 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DataManipulations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DriverFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/ExcelUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/LogUsersDataProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="76" column="39" lean-forward="true" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/ManageDataProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="305" selection-start-line="305" selection-end-line="305" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -783,61 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/LoginPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/JsHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/MpkPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2788">
-          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/BaseTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="52" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="35" column="70" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/DashboardPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="100" column="52" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/allure-results/89d5760c-7f47-4a5b-a904-b0089d840df7-result.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -852,40 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/LoginPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="83" column="24" lean-forward="true" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="418" column="40" lean-forward="true" selection-start-line="418" selection-start-column="40" selection-end-line="418" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/internal/Invoker.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -893,27 +738,290 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/Ashot.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="127" column="36" lean-forward="true" selection-start-line="127" selection-start-column="36" selection-end-line="127" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/screenshots/TryCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DriverType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/CaptureScreenshotOfElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/CompareScreenshots.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DriverFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ScreenshotsToCompareInTests/menu.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/DashboardPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/screenshots/CaptureScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/NowSuchDriverException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/WebTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/BaseTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/LogUsersDataProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/CodeEncodeString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/ExcelUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/utilities/TryCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="45" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="442">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/EmployeesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/JsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/LoginPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/MpkPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="80" column="73" lean-forward="true" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/DataFaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/MpkPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="444" column="52" lean-forward="true" selection-start-line="444" selection-start-column="52" selection-end-line="444" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/DashboardPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="134" column="61" lean-forward="true" selection-start-line="134" selection-start-column="61" selection-end-line="134" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/ManageDataProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/NumberFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+          <folding>
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2431#2432#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1540">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="103" column="32" lean-forward="true" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="662" lean-forward="true" selection-start-line="662" selection-end-line="662" />
+          <folding>
+            <element signature="e#5658#5666#0" expanded="true" />
+            <element signature="e#10998#11006#0" expanded="true" />
+            <element signature="e#14676#14684#0" expanded="true" />
+            <element signature="e#16618#16626#0" expanded="true" />
+            <element signature="e#18838#18846#0" expanded="true" />
+            <element signature="e#20392#20400#0" expanded="true" />
+            <element signature="e#20699#20707#0" expanded="true" />
+            <element signature="e#21276#21284#0" expanded="true" />
+            <element signature="e#21868#21876#0" expanded="true" />
+            <element signature="e#26864#26872#0" expanded="true" />
+            <element signature="e#28216#28224#0" expanded="true" />
+            <element signature="e#29832#29840#0" expanded="true" />
+            <element signature="e#30386#30394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProfilesPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="60" column="68" lean-forward="true" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="55" column="103" selection-start-line="55" selection-start-column="103" selection-end-line="55" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="350" column="77" lean-forward="true" selection-start-line="350" selection-start-column="77" selection-end-line="350" selection-end-column="77" />
+        <state relative-caret-position="113">
+          <caret line="226" column="40" selection-start-line="226" selection-start-column="19" selection-end-line="226" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+        <state relative-caret-position="425">
+          <caret line="266" column="1" lean-forward="true" selection-start-line="266" selection-start-column="1" selection-end-line="266" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="84" column="9" lean-forward="true" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
         </state>
       </provider>
     </entry>

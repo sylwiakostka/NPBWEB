@@ -2,17 +2,19 @@ package pages;
 
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import utilities.JsHelper;
 import utilities.SearchFromTables;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static utilities.NumberFormatter.changeToDecimalFormat;
 
 public class MpkPage extends BasePage {
     public MpkPage(WebDriver driver) {
@@ -73,7 +75,7 @@ public class MpkPage extends BasePage {
     @FindBy(xpath = "//select[@aria-label='rows per page']")
     private WebElement selectRowsPerPage;
 
-    @FindBy(xpath = "//div[@class='notification green notification-enter-done']//p[.='Powyślnie aktywowano']")
+    @FindBy(xpath = "//div[@class='notification green notification-enter-done']//p[.='Pomyślnie aktywowano']")
     private WebElement notificationSucessActivated;
 
     @FindBy(xpath = "//div[@class='inputs']//h3[.='Edytuj']")
@@ -87,6 +89,9 @@ public class MpkPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='notification green notification-enter-done']//p[.='Pomyślnie przypisano użytkowników']")
     private WebElement notificationSucessUserAssigned;
+
+    @FindBy(xpath = "//div[@class='notification red notification-enter-done']//p[.='Nazwa departmanetu juz istnieje']")
+    private WebElement notificationMpkExist;
 
     @FindBy(xpath = "//button[.='Następna']")
     private WebElement nextPageButton;
@@ -131,7 +136,7 @@ public class MpkPage extends BasePage {
 
     @Step
     public MpkPage verify_mpk_tab_header_names() {
-        List<String> expectedTexts = Arrays.asList("Limit kwotowy", "Wykorzystano", "Alert gdy pozostało mniej niż", "Uwagi", "Opcje");
+        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit kwotowy", "Wykorzystano", "Alert gdy pozostało mniej niż", "Uwagi", "Opcje");
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> listOfHeaderNames = driver.findElements(By.xpath("//div[@class='rt-thead -header']//div[@role='row']/descendant::div[@class='rt-resizable-header-content']"));
@@ -166,8 +171,10 @@ public class MpkPage extends BasePage {
 
 
     @Step
-    public MpkPage add_new_mpk(String mpkName, String maxAmount, String alertAmount, String comment) {
+    public MpkPage add_new_mpk(String mpkName, String maxAmount, String alertAmount, String comment) throws InterruptedException {
         waitForPresenceOfElement(addMpkButton);
+        waitForElementToBeClickable(addMpkButton);
+        Thread.sleep(10000);
         addMpkButton.click();
         waitForPresenceOfElement(addMpkForm);
         verify_new_mpk_form_fields_name();
@@ -193,8 +200,8 @@ public class MpkPage extends BasePage {
                 WebElement optionsRow = row.findElement(By.xpath("./following-sibling::div[5]"));
 
                 Assert.assertEquals(row.getText(), mpkName);
-                Assert.assertEquals(maxAmountRow.getText(), maxAmount);
-                Assert.assertEquals(alertRow.getText(), alertAmount);
+                Assert.assertEquals(maxAmountRow.getText(), changeToDecimalFormat(maxAmount));
+                Assert.assertEquals(alertRow.getText(), changeToDecimalFormat(alertAmount));
                 Assert.assertEquals(commentRow.getText(), comment);
                 Assert.assertTrue(optionsRow.getText().contains("Edytuj"));
                 Assert.assertTrue(optionsRow.getText().contains("Usuń"));
@@ -205,8 +212,9 @@ public class MpkPage extends BasePage {
     }
 
     @Step
-    public MpkPage cant_add_mpk_without_data() {
+    public MpkPage cant_add_mpk_without_data() throws InterruptedException {
         waitForPresenceOfElement(addMpkButton);
+        Thread.sleep(10000);
         addMpkButton.click();
         waitForPresenceOfElement(addMpkForm);
         saveMpkButton.click();
@@ -217,7 +225,7 @@ public class MpkPage extends BasePage {
 
     @Step
     public MpkPage choose_appropriate_mpk_without_users_and_click_delete(String mpkName) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(10000);
         List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
         for (WebElement row : rows) {
             if (row.getText().equals(mpkName)) {
@@ -236,6 +244,24 @@ public class MpkPage extends BasePage {
         return this;
     }
 
+
+    @Step
+    public MpkPage choose_appropriate_mpk_without_users_and_click_edit(String mpkName) throws InterruptedException {
+        Thread.sleep(10000);
+        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
+        for (WebElement row : rows) {
+            if (row.getText().equals(mpkName)) {
+                System.out.println(row.getText());
+                WebElement editButton = row.findElement(By.xpath("./following-sibling::div[5]//span[.='Edytuj']"));
+                editButton.click();
+            }
+        }
+        waitForPresenceOfElement(editMpkForm);
+        Assert.assertEquals(nameField.getAttribute("value"), mpkName);
+        return this;
+    }
+
+
     @Step
     public MpkPage verify_if_deleted_mpk_isnt_on_list(String mpkName) {
         List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
@@ -252,8 +278,25 @@ public class MpkPage extends BasePage {
 
 
     @Step
-    public MpkPage choose_appropriate_mpk_without_users_and_click_edit(String mpkName) throws InterruptedException {
-        Thread.sleep(2000);
+    public MpkPage choose_appropriate_mpk_with_users_and_click_edit(String mpkName) throws InterruptedException {
+        Thread.sleep(10000);
+        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
+        for (WebElement row : rows) {
+            if (row.getText().equals(mpkName)) {
+                WebElement editButton = row.findElement(By.xpath("./following-sibling::div[5]//span[.='Edytuj']"));
+                System.out.println("znaleziono row z mpk");
+                editButton.click();
+            }
+        }
+        waitForPresenceOfElement(editMpkForm);
+        Assert.assertEquals(nameField.getAttribute("value"), mpkName);
+        return this;
+    }
+
+
+    @Step
+    public MpkPage choose_appropriate_mpk_and_click_edit(String mpkName) throws InterruptedException {
+        Thread.sleep(10000);
         List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
         for (WebElement row : rows) {
             if (row.getText().equals(mpkName)) {
@@ -275,41 +318,51 @@ public class MpkPage extends BasePage {
     }
 
     @Step
-    public MpkPage active_deleted_mpk(String mpkName) {
-        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
-        for (WebElement row : rows) {
-            if (row.getText().equals(mpkName)) {
-                System.out.println(row.getText());
-                WebElement optionsRow = row.findElement(By.xpath("./following-sibling::div[5]"));
-                Assert.assertEquals(optionsRow.getText(), "Aktywuj");
-                optionsRow.click();
-                waitForPresenceOfElement(notificationSucessActivated);
-                Assert.assertEquals(notificationSucessActivated.getText(), "Powyślnie aktywowano");
+    public MpkPage active_deleted_mpk(int index) {
+        List<WebElement> unactiveMpkNames = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[contains(@style,'background')]/div[1]"));
+        WebElement rowWithIndex = unactiveMpkNames.get(index);
+        String mpkName = rowWithIndex.getText();
+        System.out.println(mpkName);
 
-                WebElement editButton = optionsRow.findElement(By.xpath("//div[@class='options']//span[.='Edytuj']"));
-                Assert.assertTrue(editButton.isDisplayed());
-                Assert.assertEquals(editButton.getText(), "Edytuj");
+        WebElement optionsRow = rowWithIndex.findElement(By.xpath("./following-sibling::div[5]"));
+        Assert.assertEquals(optionsRow.getText(), "Aktywuj");
+        optionsRow.click();
+        waitForPresenceOfElement(notificationSucessActivated);
+        Assert.assertEquals(notificationSucessActivated.getText(), "Pomyślnie aktywowano");
 
-                WebElement deleteButton = optionsRow.findElement(By.xpath("//div[@class='options']//span[.='Usuń']"));
-                Assert.assertTrue(deleteButton.isDisplayed());
-                Assert.assertEquals(deleteButton.getText(), "Usuń");
-            }
-        }
+        WebElement editButton = optionsRow.findElement(By.xpath("//div[@class='options']//span[.='Edytuj']"));
+        Assert.assertTrue(editButton.isDisplayed());
+        Assert.assertEquals(editButton.getText(), "Edytuj");
+
+        WebElement deleteButton = optionsRow.findElement(By.xpath("//div[@class='options']//span[.='Usuń']"));
+        Assert.assertTrue(deleteButton.isDisplayed());
+        Assert.assertEquals(deleteButton.getText(), "Usuń");
+
         return this;
     }
 
     @Step
-    public MpkPage edit_mpk_fields_and_verify_if_is_edited(String newMpkName, String newMaxAmount, String newAlertAmount, String newComment, String newMpkToAssignEmployee) throws InterruptedException {
+    public MpkPage edit_mpk_fields_and_verify_if_is_edited_with_users(String newMpkName, String newMaxAmount, String newAlertAmount, String newComment, String newMpkToAssignEmployee) throws InterruptedException {
         waitForPresenceOfElement(editMpkForm);
+
+        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit kwotowy", "Alert gdy pozostało mniej niż", "Uwagi", "Wybierz do jakiego MPK ich przypisać:");
+        List<String> actualTexts = new ArrayList<String>();
+
+        List<WebElement> labelNames = driver.findElements(By.xpath("//div[@class='input']/label"));
+        for (WebElement label : labelNames) {
+            actualTexts.add(label.getText());
+        }
+
+        Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
 
         nameField.clear();
         nameField.sendKeys(newMpkName);
 
         maxAmountField.clear();
-        maxAmountField.sendKeys(newMaxAmount);
+        maxAmountField.sendKeys(changeToDecimalFormat(newMaxAmount));
 
         alertAmountField.clear();
-        alertAmountField.sendKeys(newAlertAmount);
+        alertAmountField.sendKeys(changeToDecimalFormat(newAlertAmount));
 
         commentField.clear();
         commentField.sendKeys(newComment);
@@ -328,9 +381,84 @@ public class MpkPage extends BasePage {
         Assert.assertEquals(notificationSucessSavedChanges.getText(), "Pomyślnie zapisano");
 
 
-        verify_is_mpk_edited(newMpkName, newMaxAmount, newAlertAmount, newComment);
+        verify_is_mpk_edited(newMpkName, changeToDecimalFormat(newMaxAmount), changeToDecimalFormat(newAlertAmount), newComment);
         return this;
     }
+
+    @Step
+    public MpkPage edit_mpk_fields_and_verify_if_is_edited_without_users(String newMpkName, String newMaxAmount, String newAlertAmount, String newComment) throws InterruptedException {
+
+        waitForPresenceOfElement(editMpkForm);
+        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit kwotowy", "Alert gdy pozostało mniej niż", "Uwagi");
+        List<String> actualTexts = new ArrayList<String>();
+
+        List<WebElement> labelNames = driver.findElements(By.xpath("//div[@class='input']/label"));
+        for (WebElement label : labelNames) {
+            actualTexts.add(label.getText());
+        }
+
+        Assert.assertEquals(actualTexts.toString(), expectedTexts.toString());
+
+        nameField.clear();
+        nameField.sendKeys(newMpkName);
+
+        maxAmountField.clear();
+        maxAmountField.sendKeys(changeToDecimalFormat(newMaxAmount));
+
+        alertAmountField.clear();
+        alertAmountField.sendKeys(changeToDecimalFormat(newAlertAmount));
+
+        commentField.clear();
+        commentField.sendKeys(newComment);
+
+        waitForPresenceOfElement(saveMpkButton);
+        saveMpkButton.click();
+        waitForPresenceOfElement(notificationSucessSavedChanges);
+        waitForPresenceOfElement(notificationSucessUserAssigned);
+
+        Assert.assertEquals(notificationSucessSavedChanges.getText(), "Pomyślnie zapisano");
+
+
+        verify_is_mpk_edited(newMpkName, changeToDecimalFormat(newMaxAmount), changeToDecimalFormat(newAlertAmount), newComment);
+        return this;
+    }
+
+
+    @Step
+    public MpkPage edit_mpk_fields_and_try_to_add_existing_name(String newMpkName) {
+
+        nameField.clear();
+        nameField.sendKeys(newMpkName);
+
+        waitForPresenceOfElement(saveMpkButton);
+        saveMpkButton.click();
+        waitForPresenceOfElement(notificationSucessSavedChanges);
+
+        Assert.assertEquals(notificationMpkExist.getText(), "Nazwa departmanetu juz istnieje");
+
+        WebElement close = driver.findElement(By.xpath("//div[@class='modal modal_after-open']//div[@class='close']"));
+        try {
+            close.click();
+        } catch (StaleElementReferenceException exception) {
+            close.click();
+        }
+        Assert.assertTrue(isMpkPresent(newMpkName));
+
+        return this;
+    }
+
+    private boolean isMpkPresent(String mpkName) {
+        boolean isMpkPresent = false;
+        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
+        waitForVisibilityOfElements(rows);
+        for (WebElement row : rows) {
+            if (row.getText().equals(mpkName)) {
+                isMpkPresent = true;
+            }
+        }
+        return isMpkPresent;
+    }
+
 
     @Step
     public MpkPage choose_appropriate_mpk_with_users_and_click_delete(String mpkName, String newMpkToAssignEmployee) throws InterruptedException {
@@ -370,7 +498,6 @@ public class MpkPage extends BasePage {
             Assert.assertFalse(backPageButton.isEnabled());
             nextPageButton.click();
             Assert.assertTrue(backPageButton.isEnabled());
-            Assert.assertFalse(nextPageButton.isEnabled());
             backPageButton.click();
         } else {
             Assert.assertFalse(nextPageButton.isEnabled());
@@ -444,6 +571,69 @@ public class MpkPage extends BasePage {
         List<WebElement> rowsWithComments = driver.findElements(By.xpath("//div[@class='rt-tr-group']/descendant::div[6]"));
         new SearchFromTables(driver).sort_data_by(commetsToSearch, rowsWithComments, alertAmountSearchField);
         return this;
+    }
+
+    @Step
+    public String getFirstMpkOnList() {
+        List<WebElement> rowsWithName = driver.findElements(By.xpath("//div[@class='rt-tr-group']/descendant::div[2]"));
+        waitForVisibilityOfElements(rowsWithName);
+        List<String> list = new ArrayList<String>();
+        for (WebElement row : rowsWithName) {
+            list.add(row.getText());
+        }
+        int listSize = list.size();
+        String mpk = null;
+        if (listSize > 0) {
+            mpk = list.get(0);
+        } else System.out.println("Nie ma mpk");
+        System.out.println("mpk from mpkList " + mpk);
+        return mpk;
+    }
+
+    @Step
+    public String getListOfActiveMpkAndSelectOne(int indexOfMpk) {
+        List<WebElement> rowsWithName = driver.findElements(By.xpath(" //span[contains(text(),'Edytuj')]/preceding::div[@class='rt-tr-group']//div[@role='gridcell'][1]"));
+        waitForVisibilityOfElements(rowsWithName);
+        List<String> list = new ArrayList<String>();
+        for (WebElement row : rowsWithName) {
+            list.add(row.getText());
+        }
+        int listSize = list.size();
+        String mpk = null;
+        if (listSize > 0) {
+            mpk = list.get(indexOfMpk);
+        } else System.out.println("Nie ma aktywnego mpk");
+        System.out.println("mpk from mpkList " + mpk);
+        return mpk;
+    }
+
+    @Step
+    public List<String> getListOfActiveMpk() {
+        List<WebElement> rowsWithName = driver.findElements(By.xpath(" //span[contains(text(),'Edytuj')]/preceding::div[@class='rt-tr-group']//div[@role='gridcell'][1]"));
+        waitForVisibilityOfElements(rowsWithName);
+        List<String> list = new ArrayList<String>();
+        for (WebElement row : rowsWithName) {
+            list.add(row.getText());
+        }
+        return list;
+    }
+
+    @Step
+    public String compareTwoListsAndTypeMpkWihoutUsersAndSelectOne(List<String> listFromMpPage, List<String> listFromEmployeesPage, int indexOfMpk) {
+
+        ArrayList<String> list3 = new ArrayList<String>(listFromMpPage);
+        list3.retainAll(listFromEmployeesPage);
+        listFromMpPage.removeAll(list3);
+        System.out.println(listFromMpPage);
+
+        int listSize = listFromMpPage.size();
+        String mpk = null;
+        if (listSize > 0) {
+            mpk = listFromMpPage.get(indexOfMpk);
+        } else System.out.println("Nie ma aktywnego mpk");
+        System.out.println("mpk from mpkList " + mpk);
+        return mpk;
+
     }
 
 }

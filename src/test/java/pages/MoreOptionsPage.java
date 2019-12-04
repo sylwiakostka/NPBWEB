@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,10 +31,10 @@ public class MoreOptionsPage extends BasePage {
     @FindBy(xpath = "//label[@for='cb4']")
     private WebElement largeTrunkCheckbox;
 
-    @FindBy(xpath = "//div[@class='car-class input']//p[.='Luksusowa']")
+    @FindBy(xpath = "//div[@class='car-class input']//p[.='Premium']")
     private WebElement premiumTaxiIcon;
 
-    @FindBy(xpath = "//div[@class='car-class input']//p[.='Popularna']")
+    @FindBy(xpath = "//div[@class='car-class input']//p[.='Standardowa']")
     private WebElement economicTaxiIcon;
 
     @FindBy(xpath = "//a[@class='more']")
@@ -47,16 +48,15 @@ public class MoreOptionsPage extends BasePage {
     public MoreOptionsPage verifyMoreOptionsPageElements() {
         Assert.assertEquals(header.getText(), "Opcje dodatkowe");
         Assert.assertEquals(additionalInfo.getText(), "Jeżeli chcesz zamówić busa, limuzynę, autokar lub inny transport niestandardowy, napisz do nas na cob@itaxi.pl lub zadzwoń na 22 439 00 30");
-        Assert.assertEquals(additionalFeeInfo.getText(), "Taksówka luksusowa: dopłata 40.00zł");
         Assert.assertEquals(silentRideCheckbox.getText(), "Cichy przejazd");
         Assert.assertEquals(largeTrunkCheckbox.getText(), "Duży bagażnik");
-        Assert.assertEquals(premiumTaxiIcon.getText(), "Luksusowa");
-        Assert.assertEquals(economicTaxiIcon.getText(), "Popularna");
+        Assert.assertEquals(premiumTaxiIcon.getText(), "Premium");
+        Assert.assertEquals(economicTaxiIcon.getText(), "Standardowa");
         Assert.assertEquals(checkFeeTableButton.getText(), "Sprawdź tabelę opłat");
         Assert.assertEquals(acceptButton.getText(), "WYBIERZ");
 
 
-        List<String> expectedTexts = Arrays.asList("Popularna", "Luksusowa");
+        List<String> expectedTexts = Arrays.asList("Standardowa", "Premium");
         List<String> actualTexts = new ArrayList<String>();
         List<WebElement> taxiTypes = driver.findElements(By.xpath("//div[@class='car-class input']//p"));
         for (WebElement type : taxiTypes) {
@@ -68,26 +68,23 @@ public class MoreOptionsPage extends BasePage {
         return this;
     }
 
-    @Step
-    public MoreOptionsPage verifyIsEconomicTaxiActive() {
-        WebElement economicTaxiIsActive = driver.findElement(By.xpath("//div[@class='car-class input']//p[.='Popularna']/.."));
-        String economicTaxiClassName = economicTaxiIsActive.getAttribute("class");
-        Assert.assertEquals("cclass active",economicTaxiClassName);
-        return this;
-    }
-
 
     @Step
-    public MoreOptionsPage verifyIsPremiumTaxiActive() {
-        WebElement premiumTaxiIsActive = driver.findElement(By.xpath("//div[@class='car-class input']//p[.='Luksusowa']/.."));
+    public MoreOptionsPage verifyIsPremiumTaxiActive(boolean isStartAddressAdded) {
+        WebElement premiumTaxiIsActive = driver.findElement(By.xpath("//div[@class='car-class input']//p[.='Premium']/.."));
         String premiumTaxiClassName = premiumTaxiIsActive.getAttribute("class");
         Assert.assertEquals("cclass active", premiumTaxiClassName);
+        if (isStartAddressAdded) {
+            Assert.assertTrue(additionalFeeInfo.getText().contains("Taksówka luksusowa: dopłata"));
+        } else {
+            Assert.assertNull(additionalFeeInfo);
+        }
         return this;
     }
 
     @Step
-    public MoreOptionsPage verifyIsEcpnomicTaxiActive() {
-        WebElement premiumTaxiIsActive = driver.findElement(By.xpath("//div[@class='car-class input']//p[.='Popularna']/.."));
+    public MoreOptionsPage verifyIsEconomicTaxiActive() {
+        WebElement premiumTaxiIsActive = driver.findElement(By.xpath("//div[@class='car-class input']//p[.='Standardowa']/.."));
         String premiumTaxiClassName = premiumTaxiIsActive.getAttribute("class");
         Assert.assertEquals("cclass active", premiumTaxiClassName);
         return this;
@@ -118,9 +115,9 @@ public class MoreOptionsPage extends BasePage {
     }
 
     @Step
-    public MoreOptionsPage openFeeTableAndVerify() throws InterruptedException {
+    public MoreOptionsPage openFeeTableAndVerify() {
         checkFeeTableButton.click();
-        ArrayList<String> tabs = new ArrayList (driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://itaxi.pl/cennik_biznesowy.pdf");

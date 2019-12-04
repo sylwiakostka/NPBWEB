@@ -223,6 +223,16 @@ public class OrderForEmployeePage extends BasePage {
         return this;
     }
 
+    @Step
+    public boolean isStartAddressAdded() {
+        boolean isStartAddressAdded = false;
+        int startAddressFieldLength = startAddressField.getAttribute("value").length();
+        if (startAddressFieldLength > 0) {
+            isStartAddressAdded = true;
+        }
+        return isStartAddressAdded;
+    }
+
 
     @Step
     public OrderForEmployeePage setStartAddress(String startAddress) throws InterruptedException {
@@ -342,7 +352,7 @@ public class OrderForEmployeePage extends BasePage {
 
         int listSize = enableDays.size();
         int daysForNextMonth = amountOfDays - listSize;
-        while (daysForNextMonth>listSize){
+        while (daysForNextMonth > listSize) {
             daysForNextMonth = daysForNextMonth - listSize;
             calendar_nextMonthButton.click();
         }

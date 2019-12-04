@@ -9,7 +9,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import screenshots.CaptureScreen;
 import utilities.JsHelper;
+import utilities.NowSuchDriverException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -51,6 +53,9 @@ public class DashboardPage extends BasePage {
 
     @FindBy(xpath = "//a[@href='/manage']//span[.='Zarządzanie']")
     private WebElement manageButton;
+
+    @FindBy(xpath = "//a[@href='/users']//span[.='Pracownicy']")
+    private WebElement employeesButton;
 
     @FindBy(xpath = "//a[@href='/order']//span[.='Dla siebie']")
     private WebElement orderForMyselfButon;
@@ -150,7 +155,7 @@ public class DashboardPage extends BasePage {
     }
 
     @Step
-    public void verify_download_app_section_on_menu() {
+    public DashboardPage verify_download_app_section_on_menu() {
         WebElement elementWithInfoAboutOrderInMobile = driver.findElement(By.xpath("//div[@class='side-nav-content']//p[contains(.,'Chcesz wygodnie zamawiać taksówki w swoim smartfonie?')]"));
         String infoAboutOrderInMobile = elementWithInfoAboutOrderInMobile.getText();
 
@@ -172,6 +177,7 @@ public class DashboardPage extends BasePage {
 
         driver.close();
         driver.switchTo().window(tabs.get(0));
+        return this;
     }
 
     @Step
@@ -186,6 +192,27 @@ public class DashboardPage extends BasePage {
         Thread.sleep(1000);
         orderedTaxiButton.click();
         return new OrderedTaxiPage(driver);
+    }
+
+    @Step
+    public DashboardPage takeScreenshotOfMenu() throws IOException, NowSuchDriverException {
+        waitForPresenceOfElement(menuSection);
+        new CaptureScreen(driver).takeScreenshot(menuSection,"menu");
+        return this;
+    }
+
+    @Step
+    public DashboardPage compareScreenshotOfMenu() throws IOException {
+        waitForPresenceOfElement(menuSection);
+        new CaptureScreen(driver).compareImages("menu", menuSection);
+        return this;
+    }
+
+    @Step
+    public EmployeesPage go_to_EmployeesPage() throws InterruptedException {
+        Thread.sleep(1000);
+        employeesButton.click();
+        return new EmployeesPage(driver);
     }
 
 

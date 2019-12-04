@@ -3,7 +3,10 @@ package tests;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
+import pages.ProfilesPage;
 import utilities.ManageDataProvider;
+
+import java.util.List;
 
 public class ProfilesPageTests extends BaseTests {
 
@@ -12,7 +15,7 @@ public class ProfilesPageTests extends BaseTests {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()
-                .choose_business_partner_from_list("HH")
+                .choose_business_partner_from_list("ABC")
                 .go_to_MpkPage()
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
@@ -27,12 +30,12 @@ public class ProfilesPageTests extends BaseTests {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()
-                .choose_business_partner_from_list("HH")
+                .choose_business_partner_from_list("ABC")
                 .go_to_MpkPage()
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
                 .verify_profilesPage()
-                .sort_from_list_by_days("Pon - pt")
+                .sort_from_list_by_days("PON-PIA")
                 .sort_data_by_name("2")
                 .sort_data_by_orderAmount("30")
                 .sort_data_by_maxAmount("10")
@@ -44,34 +47,16 @@ public class ProfilesPageTests extends BaseTests {
 
 
     @Test
-    public void should_compare_profile_list_in_delete_and_edit_section() throws InterruptedException {
-        new LoginPage(driver)
-                .verify_loginPage()
-                .login_as_superAdmin()
-                .choose_business_partner_from_list("HH")
-                .go_to_MpkPage()
-                .verify_MpkPage()
-                .go_to_ProfilesPage()
-                .verify_profilesPage()
-                .show_amount_of_rows_per_page("100")
-                .compare_list_of_profiles_in_delete_section("2,2 zł za km")
-                .compare_list_of_profiles_in_edit_section("Bez limitów")
-        ;
-    }
-
-
-    @Test
     public void should_verify_if_can_switch_profiles_list() throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()
-                .choose_business_partner_from_list("HH")
+                .choose_business_partner_from_list("ABC")
                 .go_to_MpkPage()
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
                 .verify_profilesPage()
                 .verify_if_next_and_back_buttons_are_active_and_clickable();
-        new DashboardPage(driver).logout();
     }
 
     @Test(dataProvider = "correctDataToAddProfiles", dataProviderClass = ManageDataProvider.class)
@@ -115,8 +100,7 @@ public class ProfilesPageTests extends BaseTests {
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
                 .verify_profilesPage()
-                .choose_appropriate_profile_without_users_and_click_delete("pop")
-                .verify_if_deleted_profile_isnt_on_list("pop");
+                .choose_profile_without_users_click_delete_and_verify_is_not_on_list(2);
     }
 
     @Test
@@ -129,12 +113,11 @@ public class ProfilesPageTests extends BaseTests {
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
                 .verify_profilesPage()
-                .choose_appropriate_profile_with_users_and_click_delete("luk", "kul")
-                .verify_if_deleted_profile_isnt_on_list("luk");
+                .choose_appropriate_profile_with_users_and_click_delete_and_verify_is_not_on_list(1);
     }
 
     @Test
-    public void should_edit_profile() throws InterruptedException {
+    public void should_try_to_delete_profile_with_users_added_without_set_new_profile() throws InterruptedException {
         new LoginPage(driver)
                 .verify_loginPage()
                 .login_as_superAdmin()
@@ -143,12 +126,52 @@ public class ProfilesPageTests extends BaseTests {
                 .verify_MpkPage()
                 .go_to_ProfilesPage()
                 .verify_profilesPage()
-                .choose_appropriate_profile_without_users_and_click_edit("kawakonfa")
-                .edit_profile_fields_and_verify_if_is_edited("abc", "09:00", "17:00", "40", "6", "", "Pon - pt", "", "Luksusowa", "abce", "war");
+                .choose_appropriate_profile_with_users_and_click_delete_without_set_new_profile(0);
+    }
 
+    @Test
+    public void should_compare_list_of_mpk_on_page_with_list_during_editing_and_deleting_profile() throws InterruptedException {
+        new LoginPage(driver)
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC")
+                .go_to_MpkPage()
+                .verify_MpkPage()
+                .go_to_ProfilesPage()
+                .verify_profilesPage();
+        List<String> listOfProfiles = new ProfilesPage(driver).getListOfExistingProfiles();
+        new ProfilesPage(driver).choose_appropriate_profile_with_users_and_compare_lists_on_form_and_on_page(0,listOfProfiles);
     }
 
 
-    //dodac sprawdzanie listy profili to przepisania - tylko profile dla danej firmy
+    @Test
+    public void should_edit_profile_without_users_added() throws InterruptedException {
+        new LoginPage(driver)
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC")
+                .go_to_MpkPage()
+                .verify_MpkPage()
+                .go_to_ProfilesPage()
+                .verify_profilesPage()
+                .choose_appropriate_profile_without_users_and_click_edit(1)
+                .edit_profile_fields_and_verify_if_is_edited("zazaz5", "08:00", "17:00", "40", "6", "20", "PON-SOB", "22", "Premium", "abce");
+    }
+
+
+    @Test
+    public void should_edit_profile_with_users_added() throws InterruptedException {
+        new LoginPage(driver)
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC")
+                .go_to_MpkPage()
+                .verify_MpkPage()
+                .go_to_ProfilesPage()
+                .verify_profilesPage()
+                .choose_appropriate_profile_with_users_and_click_edit(1)
+                .edit_profile_fields_and_verify_if_is_edited("11", "07:00", "20:00", "60", "5", "20", "PON-SOB", "22", "Premium", "abce");
+    }
+
 
 }

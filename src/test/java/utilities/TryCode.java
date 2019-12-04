@@ -1,17 +1,30 @@
 package utilities;
+import java.util.*;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
 
 public class TryCode {
     public static void main(String[] args) {
-        int amountOfDays = 60;
-        int listSize = 30;
-        int daysForNextMonth =amountOfDays - listSize;
-        while (daysForNextMonth>listSize){
-        daysForNextMonth = daysForNextMonth - listSize;
-        }
-        System.out.println(daysForNextMonth);
+
+        List<String> cityList = new ArrayList<String>();
+        cityList.add("Delhi");
+        cityList.add("Mumbai");
+        cityList.add("Bangalore");
+        cityList.add("Chennai");
+        cityList.add("Kolkata");
+        cityList.add("Mumbai");
+
+        List<String> cityList2 = new ArrayList<String>();
+        cityList2.add("Warsaw");
+        cityList2.add("Mumbai");
+        cityList2.add("Paris");
+        cityList2.add("London");
+        cityList2.add("Rome");
+        cityList2.add("Madrid");
+
+        ArrayList<String> list3 = new ArrayList<String>(cityList);
+        list3.retainAll(cityList2);
+        cityList.removeAll(list3);
+        System.out.println("lista 1 bez powtórki"+cityList);
+
     }
 }

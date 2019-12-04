@@ -1,10 +1,13 @@
 package pages;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utilities.CodeEncodeString;
 import utilities.DataFaker;
 import utilities.EmailHelper;
 
@@ -19,7 +22,10 @@ public class RemindPasswordPage extends BasePage {
         super(driver);
     }
 
-    public static final String EMAIL = System.getenv("EMAIL_USERNAME");
+
+    public String emailEmployee = "haniakot90@gmail.com";
+    public String passwordToEmail = "a290ZWszNDU=";
+
 
     @FindBy(id = "login")
     private WebElement emailField;
@@ -60,7 +66,7 @@ public class RemindPasswordPage extends BasePage {
     @FindBy(xpath = "//div[@class='input']//p[.='Podaj adres email']")
     private WebElement errorEmailInfo;
 
-    @FindBy (xpath = "//div[@class='notifications']//p[.='Wysyłanie wiadomości nie powiodło się, sprawdź poprawność adresu email']")
+    @FindBy(xpath = "//div[@class='notifications']//p[.='Wysyłanie wiadomości nie powiodło się, sprawdź poprawność adresu email']")
     private WebElement errorEmailNotification;
 
     @Step
@@ -96,7 +102,7 @@ public class RemindPasswordPage extends BasePage {
 
     @Step
     public String remind_password_and_get_new() {
-        emailField.sendKeys(EMAIL);
+        emailField.sendKeys(emailEmployee);
         sendCodeButton.click();
         verify_new_fields_to_change_password();
 
@@ -113,15 +119,23 @@ public class RemindPasswordPage extends BasePage {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
 
-        String code = new EmailHelper(driver).openMail_and_readCode();
+        String code = new EmailHelper(driver).openMail_and_readCode(emailEmployee, CodeEncodeString.decodeString(passwordToEmail));
         driver.switchTo().window(tabs.get(0));
         newCodeField.sendKeys(code);
-        String newPassword = DataFaker.generate_fake_passwrod();
+        String newPassword = DataFaker.generate_fake_password_only_numbers();
+        System.out.println("fake password:" + newPassword);
+        while (newPasswordField.getAttribute("value").length() > 0) {
+            newPasswordField.sendKeys(Keys.BACK_SPACE);
+        }
         newPasswordField.sendKeys(newPassword);
+        while (newPasswordRepeatField.getAttribute("value").length() > 0) {
+            newPasswordRepeatField.sendKeys(Keys.BACK_SPACE);
+        }
         newPasswordRepeatField.sendKeys(newPassword);
         changePasswordButton.click();
         return newPassword;
     }
+    
 
     @Step
     public RemindPasswordPage introduce_wrong_email() {

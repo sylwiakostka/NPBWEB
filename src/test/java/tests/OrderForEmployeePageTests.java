@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.OrderForEmployeePage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -239,7 +240,6 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder();
     }
 
-    //WAŻNE! bedzie zmienione api pod wiecej opcji - aby sie wybrane opcje gdzies pokazywaly po zamowieniu, obecnie nigdzie nie ma
 
     @Test
     public void should_verify_and_order_with_more_options() throws InterruptedException {
@@ -250,12 +250,14 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .verify_dashboardPge_for_admin("ABC")
                 .go_to_orderForEmployeePage()
                 .verifyOrderForEmployeePage()
-                .verifyOrderTaxiPageLabelNames()
+                .verifyOrderTaxiPageLabelNames();
+        boolean isStartAddressAdded = new OrderForEmployeePage(driver).isStartAddressAdded();
+        new OrderForEmployeePage(driver)
                 .openMoreOptionsAndVerifyButtonText()
                 .verifyMoreOptionsPageElements()
                 .verifyIsEconomicTaxiActive()
                 .selectPremiumTaxiAsActive()
-                .verifyIsPremiumTaxiActive()
+                .verifyIsPremiumTaxiActive(isStartAddressAdded)
                 .selectLargeTrunk()
                 .selectSilentRide()
                 .openFeeTableAndVerify()

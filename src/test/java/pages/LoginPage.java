@@ -1,13 +1,11 @@
 package pages;
 
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -128,11 +126,12 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public RemindPasswordPage go_to_remindPasswordPage() {
+    public RemindPasswordPage go_to_remindPasswordPage() throws InterruptedException {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.sleep(3000);
+
         }
         waitForPresenceOfElement(remindButton);
         waitForElementToBeClickable(remindButton);

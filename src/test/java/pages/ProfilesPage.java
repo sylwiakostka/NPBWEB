@@ -8,11 +8,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import utilities.NumberFormatter;
 import utilities.SearchFromTables;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import static utilities.NumberFormatter.changeToDecimalFormat;
 
 
 public class ProfilesPage extends BasePage {
@@ -80,6 +84,9 @@ public class ProfilesPage extends BasePage {
     @FindBy(xpath = "//div[@class='notification red notification-enter-done']//p[.='Pusta nazwa profilu']")
     private WebElement notificationNoProfileName;
 
+    @FindBy(xpath = "//div[@class='notification red notification-enter-done']//p[.='Należy przepiąć użytkowników z profilu do usunięcia']")
+    private WebElement notificationCantDeleteWithUsers;
+
     @FindBy(xpath = "//div[@class='inputs delete']")
     private WebElement deleteProfileConfirmSection;
 
@@ -125,6 +132,8 @@ public class ProfilesPage extends BasePage {
     @FindBy(xpath = "//div[@class='rt-thead -filters']//div[@class='rt-th'][6]//input")
     private WebElement usersNumberSearchField;
 
+    @FindBy(xpath = "//div[@class='select-search']//input")
+    private WebElement fieldToPutNewProfileForUsers_editAndDeleteOption;
 
     @Step
     public ProfilesPage verify_profilesPage() throws InterruptedException {
@@ -137,7 +146,7 @@ public class ProfilesPage extends BasePage {
     @Step
     public ProfilesPage verify_profiles_tab_header_names() {
 
-        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzinowy", "Dni tygodnia", "Limit ilościowy", "Limit kwotowy", "Alert gdy zostało mniej niż", "Maksymalna taryfa", "Liczba użytkowników", "Klasa samochodu", "Opcje");
+        List<String> expectedTexts = Arrays.asList("Nazwa", "Limit godzin", "Dni tygodnia", "Limit ilościowy", "Limit kwotowy", "Alert gdy zostało mniej niż", "Maksymalna taryfa", "Liczba użytkowników", "Klasa samochodu", "Opcje");
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> listOfHeaderNames = driver.findElements(By.xpath("//div[@class='rt-thead -header']//div[@role='row']/descendant::div[@class='rt-resizable-header-content']"));
@@ -303,10 +312,10 @@ public class ProfilesPage extends BasePage {
                 Assert.assertEquals(orderTimeRow.getText(), orderTime);
                 Assert.assertEquals(orderDaysRow.getText(), orderDays);
                 Assert.assertEquals(maxOrdersRow.getText(), maxOrders);
-                Assert.assertEquals(maxAmountRow.getText(), maxAmount);
-                Assert.assertEquals(alertRow.getText(), alertAmount);
-                Assert.assertEquals(maxTariffRow.getText(), maxTariff);
-//                Assert.assertEquals(carClassRow.getText(), carClass);
+                Assert.assertEquals(maxAmountRow.getText(), changeToDecimalFormat(maxAmount));
+                Assert.assertEquals(alertRow.getText(), changeToDecimalFormat(alertAmount));
+                Assert.assertEquals(maxTariffRow.getText(), changeToDecimalFormat(maxTariff));
+                Assert.assertEquals(carClassRow.getText(), carClass);
 
                 Assert.assertTrue(optionsRow.getText().contains("Edytuj"));
                 Assert.assertTrue(optionsRow.getText().contains("Usuń"));
@@ -333,14 +342,26 @@ public class ProfilesPage extends BasePage {
     }
 
     @Step
-    public ProfilesPage choose_appropriate_profile_without_users_and_click_delete(String profileName) throws InterruptedException {
+    public ProfilesPage choose_profile_without_users_click_delete_and_verify_is_not_on_list(int indexOfProfileWithoutUsers) throws InterruptedException {
         Thread.sleep(2000);
-        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
-        for (WebElement row : rows) {
-            if (row.getText().equals(profileName)) {
+        List<String> zeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals("0")) {
+                zeroUsers.add(row.getText());
+            }
+        }
+        System.out.println(zeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(zeroUsers.get(indexOfProfileWithoutUsers))) {
                 System.out.println(row.getText());
-                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div[9]//span[.='Usuń']"));
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to delete: " + profileName);
+                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div//span[.='Usuń']"));
                 deleteButton.click();
+                break;
             }
         }
         waitForPresenceOfElement(deleteProfileConfirmSection);
@@ -350,18 +371,37 @@ public class ProfilesPage extends BasePage {
         deleteProfileConfirmButton.click();
         waitForPresenceOfElement(notificationSucessDeleted);
         Assert.assertEquals(notificationSucessDeleted.getText(), "Pomyślnie usunięto");
+
+
+        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
+        for (WebElement row : rows) {
+            Assert.assertFalse(row.getText().equals(profileName));
+        }
         return this;
     }
 
     @Step
-    public ProfilesPage choose_appropriate_profile_with_users_and_click_delete(String profileName, String newProfileToAssignEmployee) throws InterruptedException {
+    public ProfilesPage choose_appropriate_profile_with_users_and_click_delete_and_verify_is_not_on_list(int indexOfProfileWithUsers) throws InterruptedException {
         Thread.sleep(2000);
-        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
-        for (WebElement row : rows) {
-            if (row.getText().equals(profileName)) {
+        List<String> moreThenZeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (!row.getText().equals("0")) {
+                moreThenZeroUsers.add(row.getText());
+            }
+        }
+
+        System.out.println(moreThenZeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(moreThenZeroUsers.get(indexOfProfileWithUsers))) {
                 System.out.println(row.getText());
-                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div[9]//span[.='Usuń']"));
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to delete: " + profileName);
+                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div//span[.='Usuń']"));
                 deleteButton.click();
+                break;
             }
         }
         waitForPresenceOfElement(deleteProfileConfirmSection);
@@ -369,31 +409,126 @@ public class ProfilesPage extends BasePage {
         Assert.assertEquals(deleteProfileConfirmSection.getText(), "Usuwanie\n" +
                 "Uwaga! Ten profil ma przypisanych użytkowników!\n" +
                 "Wybierz do jakiego profilu ich przypisać:");
-        profileListToAssignEmployee.sendKeys(newProfileToAssignEmployee);
-        profileListToAssignEmployee.click();
-        Thread.sleep(1000);
-        WebElement firstElementFromList = driver.findElement(By.xpath("//div[@class='select-search']//ul[@class='open']//li[1]"));
-        firstElementFromList.click();
+
+
+        fieldToPutNewProfileForUsers_editAndDeleteOption.click();
+        findElementFromUlListByTextAndClickByIndex(0);
         Thread.sleep(1000);
         deleteProfileConfirmButton.click();
         waitForPresenceOfElement(notificationSucessDeleted);
         Assert.assertEquals(notificationSucessDeleted.getText(), "Pomyślnie usunięto");
-        return this;
-    }
 
 
-    @Step
-    public ProfilesPage verify_if_deleted_profile_isnt_on_list(String profileName) {
         List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
         for (WebElement row : rows) {
-            Assert.assertNotEquals(row.getText(), profileName);
+            Assert.assertFalse(row.getText().equals(profileName));
         }
         return this;
     }
 
     @Step
+    public ProfilesPage choose_appropriate_profile_with_users_and_compare_lists_on_form_and_on_page(int indexOfProfileWithUsers, List<String> listOfAllProfiles) throws InterruptedException {
+        Thread.sleep(2000);
+        List<String> moreThenZeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (!row.getText().equals("0")) {
+                moreThenZeroUsers.add(row.getText());
+            }
+        }
+
+        System.out.println(moreThenZeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(moreThenZeroUsers.get(indexOfProfileWithUsers))) {
+                System.out.println(row.getText());
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to delete: " + profileName);
+                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div//span[.='Usuń']"));
+                deleteButton.click();
+                break;
+            }
+        }
+        waitForPresenceOfElement(deleteProfileConfirmSection);
+        System.out.println(deleteProfileConfirmSection.getText());
+        Assert.assertEquals(deleteProfileConfirmSection.getText(), "Usuwanie\n" +
+                "Uwaga! Ten profil ma przypisanych użytkowników!\n" +
+                "Wybierz do jakiego profilu ich przypisać:");
+
+
+        fieldToPutNewProfileForUsers_editAndDeleteOption.click();
+        List<WebElement> listFromForm = driver.findElements(By.xpath("//ul[@class='open']/li"));
+        List<String> listFromFormAsArray = new ArrayList<String>();
+        for(WebElement list:listFromForm){
+            listFromFormAsArray.add(list.getText());
+        }
+        Collections.sort(listFromFormAsArray);
+        System.out.println("list from form:"+ listFromFormAsArray.toString());
+
+        List<String> listWithoutChoosenProfile = new ArrayList<String>();
+        listWithoutChoosenProfile.addAll(listOfAllProfiles);
+        listWithoutChoosenProfile.remove(profileName);
+        Collections.sort(listWithoutChoosenProfile);
+        System.out.println("list from page without chosen profile:"+ listWithoutChoosenProfile.toString());
+
+        Assert.assertEquals(listFromFormAsArray.toString(),listWithoutChoosenProfile.toString());
+        closeSection.click();
+
+        return this;
+    }
+
+    @Step
+    public List<String> getListOfExistingProfiles() {
+        List<String> listOfExistingProfilesAsArray = new ArrayList<String>();
+        List<WebElement> listOfExistingProfiles = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][1]"));
+        for (WebElement profile : listOfExistingProfiles) {
+            listOfExistingProfilesAsArray.add(profile.getText());
+        }
+        return listOfExistingProfilesAsArray;
+    }
+
+
+    @Step
+    public ProfilesPage choose_appropriate_profile_with_users_and_click_delete_without_set_new_profile(int indexOfProfileWithUsers) throws InterruptedException {
+        Thread.sleep(2000);
+        List<String> moreThenZeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (!row.getText().equals("0")) {
+                moreThenZeroUsers.add(row.getText());
+            }
+        }
+        System.out.println(moreThenZeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(moreThenZeroUsers.get(indexOfProfileWithUsers))) {
+                System.out.println(row.getText());
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to delete: " + profileName);
+                WebElement deleteButton = row.findElement(By.xpath("./following-sibling::div//span[.='Usuń']"));
+                deleteButton.click();
+                break;
+            }
+        }
+        waitForPresenceOfElement(deleteProfileConfirmSection);
+        Assert.assertEquals(deleteProfileConfirmSection.getText(), "Usuwanie\n" +
+                "Uwaga! Ten profil ma przypisanych użytkowników!\n" +
+                "Wybierz do jakiego profilu ich przypisać:");
+        deleteProfileConfirmButton.click();
+
+        waitForPresenceOfElement(notificationCantDeleteWithUsers);
+        Assert.assertEquals(notificationCantDeleteWithUsers.getText(), "Należy przepiąć użytkowników z profilu do usunięcia");
+        closeSection.click();
+
+        return this;
+    }
+
+
+    @Step
     public ProfilesPage edit_profile_fields_and_verify_if_is_edited(String profileName, String timeFrom, String timeTo, String maxAmount, String maxOrders,
-                                                                    String alertAmount, String orderDays, String maxTariff, String carClass, String comment, String newProfileToAssignEmployee) throws InterruptedException {
+                                                                    String alertAmount, String orderDays, String maxTariff, String carClass, String comment) throws InterruptedException {
         waitForPresenceOfElement(editProfleForm);
         nameField.clear();
         nameField.sendKeys(profileName);
@@ -456,12 +591,6 @@ public class ProfilesPage extends BasePage {
         commentForCCField.clear();
         commentForCCField.sendKeys(comment);
 
-        profileListToAssignEmployee.sendKeys(newProfileToAssignEmployee);
-        profileListToAssignEmployee.click();
-        Thread.sleep(1000);
-        WebElement firstElementFromList = driver.findElement(By.xpath("//div[@class='select-search']//ul[@class='open']//li[1]"));
-        firstElementFromList.click();
-        Thread.sleep(1000);
         waitForPresenceOfElement(saveProfileButton);
         saveProfileButton.click();
 
@@ -475,13 +604,27 @@ public class ProfilesPage extends BasePage {
     }
 
     @Step
-    public ProfilesPage choose_appropriate_profile_without_users_and_click_edit(String profileName) throws InterruptedException {
-        Thread.sleep(1000);
-        List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
-        for (WebElement row : rows) {
-            if (row.getText().equals(profileName)) {
-                WebElement editButton = row.findElement(By.xpath("./following-sibling::div[9]//span[.='Edytuj']"));
+    public ProfilesPage choose_appropriate_profile_without_users_and_click_edit(int indexOfProfileWithoutUsers) throws InterruptedException {
+
+        Thread.sleep(2000);
+        List<String> zeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals("0")) {
+                zeroUsers.add(row.getText());
+            }
+        }
+        System.out.println(zeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(zeroUsers.get(indexOfProfileWithoutUsers))) {
+                System.out.println(row.getText());
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to edit: " + profileName);
+                WebElement editButton = row.findElement(By.xpath("./following-sibling::div//span[.='Edytuj']"));
                 editButton.click();
+                break;
             }
         }
         waitForPresenceOfElement(editProfleForm);
@@ -490,7 +633,40 @@ public class ProfilesPage extends BasePage {
     }
 
     @Step
-    public ProfilesPage verify_is_profile_edited(String profileName, String timeFrom, String timeTo, String maxAmount, String maxOrders,
+    public ProfilesPage choose_appropriate_profile_with_users_and_click_edit(int indexOfProfileWithoutUsers) throws InterruptedException {
+
+        Thread.sleep(2000);
+        List<String> moreThenZeroUsers = new ArrayList<String>();
+        String profileName = null;
+        List<WebElement> rowsWithAmountOfUsers = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td'][8]"));
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (!row.getText().equals("0")) {
+                moreThenZeroUsers.add(row.getText());
+            }
+        }
+        System.out.println(moreThenZeroUsers);
+
+        for (WebElement row : rowsWithAmountOfUsers) {
+            if (row.getText().equals(moreThenZeroUsers.get(indexOfProfileWithoutUsers))) {
+                System.out.println(row.getText());
+                profileName = row.findElement(By.xpath("./preceding-sibling::div[@class='rt-td'][7]")).getText();
+                System.out.println("profile to edit: " + profileName);
+                WebElement editButton = row.findElement(By.xpath("./following-sibling::div//span[.='Edytuj']"));
+                editButton.click();
+                break;
+            }
+        }
+        waitForPresenceOfElement(editProfleForm);
+        Assert.assertEquals(nameField.getAttribute("value"), profileName);
+        return this;
+    }
+
+
+
+
+
+    @Step
+    private ProfilesPage verify_is_profile_edited(String profileName, String timeFrom, String timeTo, String maxAmount, String maxOrders,
                                                  String alertAmount, String orderDays, String maxTariff, String carClass) throws InterruptedException {
         Thread.sleep(2000);
         List<WebElement> rows = driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
@@ -511,10 +687,10 @@ public class ProfilesPage extends BasePage {
                 Assert.assertEquals(orderTimeRow.getText(), orderTime);
                 Assert.assertEquals(orderDaysRow.getText(), orderDays);
                 Assert.assertEquals(maxOrdersRow.getText(), maxOrders);
-                Assert.assertEquals(maxAmountRow.getText(), maxAmount);
-                Assert.assertEquals(alertRow.getText(), alertAmount);
-                Assert.assertEquals(maxTariffRow.getText(), maxTariff);
-//                Assert.assertEquals(carClassRow.getText(), carClass);
+                Assert.assertEquals(maxAmountRow.getText(), changeToDecimalFormat(maxAmount));
+                Assert.assertEquals(alertRow.getText(), changeToDecimalFormat(alertAmount));
+                Assert.assertEquals(maxTariffRow.getText(), changeToDecimalFormat(maxTariff));
+                Assert.assertEquals(carClassRow.getText(), carClass);
 
                 Assert.assertTrue(optionsRow.getText().contains("Edytuj"));
                 Assert.assertTrue(optionsRow.getText().contains("Usuń"));
@@ -563,18 +739,12 @@ public class ProfilesPage extends BasePage {
         }
         waitForPresenceOfElement(deleteProfileConfirmSection);
         Assert.assertEquals(deleteProfileConfirmSection.getText(), "Usuwanie\n" +
-                "Uwaga! Ten profil ma przypisanych użytkowników!\n" +
-                "Wybierz do jakiego profilu ich przypisać:");
+                "Czy na pewno chcesz usunąć profil?");
+        WebElement confirmDeleteInSection = driver.findElement(By.id("button"));
+        confirmDeleteInSection.click();
 
-
-        List<String> profile_names_from_edit_or_delete_list = take_profile_names_from_edit_or_delete_selectList();
-
-        while (profile_names_from_main_table.contains(profileName)) {
-            profile_names_from_main_table.remove(profileName);
-        }
-        System.out.println("list after remove to compare: " + profile_names_from_main_table);
-
-        Assert.assertEquals(profile_names_from_main_table.toString(), profile_names_from_edit_or_delete_list.toString());
+        waitForPresenceOfElement(notificationCantDeleteWithUsers);
+        Assert.assertEquals(notificationCantDeleteWithUsers.getText(), "Należy przepiąć użytkowników z profilu do usunięcia");
 
         closeSection.click();
 
@@ -613,8 +783,7 @@ public class ProfilesPage extends BasePage {
 
 
     @Step
-    public ProfilesPage cant_add_new_profile_with_incorrect_hours_finishTimeBeforeStartTime(String
-                                                                                                    profileName, String timeFrom, String timeTo) throws InterruptedException {
+    public ProfilesPage cant_add_new_profile_with_incorrect_hours_finishTimeBeforeStartTime(String profileName, String timeFrom, String timeTo) throws InterruptedException {
         Thread.sleep(1000);
         waitForPresenceOfElement(addNewProfileButton);
         addNewProfileButton.click();
@@ -693,7 +862,6 @@ public class ProfilesPage extends BasePage {
     }
 
 
-
     @Step
     public ProfilesPage sort_data_by_name(String nameToSearch) throws InterruptedException {
         List<WebElement> rowsWithName = driver.findElements(By.xpath("//div[@class='rt-tr-group']/descendant::div[2]"));
@@ -751,7 +919,6 @@ public class ProfilesPage extends BasePage {
         new SearchFromTables(driver).sort_selecting_from_list(cassClass, rowsWithCarClass, selectListWithCarClass);
         return this;
     }
-
 
 
 }

@@ -9,7 +9,7 @@ import pages.RemindPasswordPage;
 public class RemindPasswordPageTests extends BaseTests {
 
     @Test
-    public void should_verify_remindPasswordPage() {
+    public void should_verify_remindPasswordPage() throws InterruptedException {
         new LoginPage(driver)
                 .go_to_remindPasswordPage()
                 .verify_remindPasswordPage()
@@ -28,14 +28,14 @@ public class RemindPasswordPageTests extends BaseTests {
     }
 
     @Test
-    public void should_introduce_wrong_email_and_cant_login(){
+    public void should_introduce_wrong_email_and_cant_login() throws InterruptedException {
         new LoginPage(driver)
                 .go_to_remindPasswordPage()
                 .introduce_wrong_email();
     }
 
     @Test
-    public void should_no_introduce_email_and_cant_login(){
+    public void should_no_introduce_email_and_cant_login() throws InterruptedException {
         new LoginPage(driver)
                 .go_to_remindPasswordPage()
                 .empty_email();

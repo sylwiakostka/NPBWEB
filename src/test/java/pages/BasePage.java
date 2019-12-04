@@ -31,15 +31,18 @@ public class BasePage {
     }
 
     protected void waitForTextToBePresentInElementValue(WebElement element, String textInElement) {
-        wait.until(ExpectedConditions.textToBePresentInElementValue(element,textInElement));
+        wait.until(ExpectedConditions.textToBePresentInElementValue(element, textInElement));
     }
 
     protected void waitForAtributeOfElement(WebElement element, String attribute, String valueOfAttribute) {
-        wait.until(ExpectedConditions.attributeContains(element,attribute, valueOfAttribute));
+        wait.until(ExpectedConditions.attributeContains(element, attribute, valueOfAttribute));
     }
 
+//    protected void waitForVisibilityOfElements(List<WebElement> elements) {
+//        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+//    }
+
     protected void waitForVisibilityOfElements(List<WebElement> elements) {
-        List<WebElement> waitElement = null;
 
         FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
                 .withTimeout(3, TimeUnit.SECONDS)
@@ -48,19 +51,8 @@ public class BasePage {
                 .ignoring(TimeoutException.class)
                 .ignoring(StaleElementReferenceException.class);
 
-        try {
-            waitElement = fwait.until(new Function<WebDriver, List<WebElement>>() {
-                public List<WebElement> apply(WebDriver driver) {
-                    return elements;
-                }
-            });
-        } catch (Exception e) {
-        }
 
-        if (waitElement != null) {
-            WebDriverWait wait = new WebDriverWait(driver, 60);
-            wait.until(ExpectedConditions.visibilityOfAllElements(elements));
-        }
+        fwait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
 
@@ -100,6 +92,24 @@ public class BasePage {
         });
     }
 
+    protected void waitUntilElementsNotDisplayed(List<WebElement> elements) {
+        Boolean element1 = wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                try {
+                    for (WebElement element : elements) {
+                        element.isDisplayed();
+                    }
+                    return false;
+                } catch (NoSuchElementException e) {
+                    return true;
+                } catch (StaleElementReferenceException f) {
+                    return true;
+                }
+            }
+        });
+    }
+
+
     protected void findElementFromUlListByTextAndClick(String textToFind) throws InterruptedException {
         List<WebElement> liList = driver.findElements(By.xpath("//ul[@class='open']//li"));
         Thread.sleep(1000);
@@ -107,14 +117,24 @@ public class BasePage {
         for (WebElement li : liList) {
             try {
                 String text = li.getText();
-//                JavascriptExecutor js = (JavascriptExecutor) driver;
-//                String text = (String) js.executeScript("return arguments[0].innerText", li);
                 if (text.equals(textToFind)) {
                     li.click();
                 }
             } catch (StaleElementReferenceException e) {
             }
 
+        }
+    }
+
+    protected void findElementFromUlListByTextAndClickByIndex(int index) throws InterruptedException {
+        List<WebElement> liList = driver.findElements(By.xpath("//ul[@class='open']//li"));
+        Thread.sleep(1000);
+        waitForVisibilityOfElements(liList);
+        WebElement li = liList.get(index);
+        try {
+            li.click();
+        } catch (StaleElementReferenceException e) {
+            li.click();
         }
     }
 
