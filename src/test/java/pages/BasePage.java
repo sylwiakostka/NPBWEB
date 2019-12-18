@@ -118,6 +118,7 @@ public class BasePage {
             try {
                 String text = li.getText();
                 if (text.equals(textToFind)) {
+                    Thread.sleep(1000);
                     li.click();
                 }
             } catch (StaleElementReferenceException e) {

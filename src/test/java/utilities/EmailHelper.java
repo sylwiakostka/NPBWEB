@@ -73,7 +73,7 @@ public class EmailHelper extends BasePage {
         waitForPresenceOfElements(unreadEmailTitles);
 
 
-        String emailTitle = "Kod weryfikacyjny";
+        String emailTitle = "iTaxi.pl - resetowanie hasła. Kod weryfikacyjny";
 
 
         for (int i = 0; i < unreadEmailTitles.size(); i++) {
@@ -86,10 +86,10 @@ public class EmailHelper extends BasePage {
             }
         }
 
-        int listSize = mailsContent.size();
+        int listSize = mailsContent.size()-1;
         String lastFromListText = mailsContent.get(listSize).getText();
         String firstStage = lastFromListText.split(": ")[1].trim();
-        String secondStage = firstStage.split("Odpowiedz")[0].trim();
+        String secondStage = firstStage.split("Pozdrawiamy")[0].trim();
         String code = secondStage;
         System.out.println(code);
         return code;

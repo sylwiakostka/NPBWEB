@@ -18,12 +18,13 @@ public class RemindPasswordPageTests extends BaseTests {
 
     @Test
     public void should_change_password_and_login_as_employee() throws InterruptedException {
+        String emailEmployee = "haniakot90@gmail.com";
         new LoginPage(driver)
                 .go_to_remindPasswordPage();
-        String newPsw = new RemindPasswordPage(driver).remind_password_and_get_new();
+        String newPsw = new RemindPasswordPage(driver).remind_password_and_get_new(emailEmployee);
         System.out.println(newPsw);
         new LoginPage(driver)
-                .login_with_new_password(newPsw)
+                .login_with_new_password(newPsw,emailEmployee)
                 .verify_dashboardPge_for_employee();
     }
 

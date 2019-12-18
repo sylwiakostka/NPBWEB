@@ -101,7 +101,8 @@ public class RemindPasswordPage extends BasePage {
 
 
     @Step
-    public String remind_password_and_get_new() {
+    public String remind_password_and_get_new(String emailEmployee) {
+        waitForVisibilityOfElement(emailField);
         emailField.sendKeys(emailEmployee);
         sendCodeButton.click();
         verify_new_fields_to_change_password();

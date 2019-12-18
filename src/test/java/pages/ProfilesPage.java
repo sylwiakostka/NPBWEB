@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -241,7 +242,7 @@ public class ProfilesPage extends BasePage {
                     time.click();
                 }
             }
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+        } catch (StaleElementReferenceException ex) {
             List<WebElement> timeList2 = driver.findElements(By.xpath("//ul[@class='react-datepicker__time-list']/li"));
             for (WebElement time : timeList2) {
                 if (time.getText().equals(timeTo)) {

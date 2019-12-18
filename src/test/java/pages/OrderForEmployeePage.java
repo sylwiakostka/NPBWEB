@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -97,7 +98,7 @@ public class OrderForEmployeePage extends BasePage {
     @FindBy(xpath = "//div[@class='notification red notification-enter-done']//p[.='Brak współrzędnych w adresie początkowym']")
     private WebElement lackOfCoordinatesInAddress;
 
-    @FindBy(xpath = "//div[@class='notifications']//p[.='Brak numeru budunku w adresie początkowym']")
+    @FindBy(xpath = "//div[@class='notifications']//p[.='Brak numeru budynku w adresie początkowym']")
     private WebElement lackOfBuildingNumberInAddress;
 
     @FindBy(className = "access")
@@ -224,11 +225,15 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
-    public boolean isStartAddressAdded() {
-        boolean isStartAddressAdded = false;
+    public boolean isStartAddressAdded() throws InterruptedException {
+        Thread.sleep(1000);
+        boolean isStartAddressAdded;
         int startAddressFieldLength = startAddressField.getAttribute("value").length();
+        System.out.println("address field lenght: " + startAddressFieldLength);
         if (startAddressFieldLength > 0) {
             isStartAddressAdded = true;
+        } else {
+            isStartAddressAdded = false;
         }
         return isStartAddressAdded;
     }
@@ -275,7 +280,7 @@ public class OrderForEmployeePage extends BasePage {
     @Step
     public OrderForEmployeePage setFinalAddress(String finalAddress) throws InterruptedException {
         Thread.sleep(2000);
-        finalAddressField.click();
+//        finalAddressField.click();
         finalAddressField.sendKeys(finalAddress);
         finalAddressField.click();
         findElementFromUlListByTextAndClick(finalAddress);
@@ -293,11 +298,12 @@ public class OrderForEmployeePage extends BasePage {
 
 
     @Step
-    public OrderForEmployeePage selectOrderTime_future_add_hours_from_now(int amountOfHours) {
+    public OrderForEmployeePage selectOrderTime_future_add_hours_from_now(int amountOfHours) throws InterruptedException {
         int indexMin = amountOfHours * 60 - 30;
         int x = indexMin / 10;
         new JsHelper(driver).scrollDownPage();
         WebElement time_future = driver.findElement(By.xpath("//label[@for='date2']"));
+        Thread.sleep(1000);
         time_future.click();
         WebElement calendar_hour = driver.findElement(By.xpath("//li[@class='react-datepicker__time-list-item']" + "[" + x + "]"));
         calendar_hour.click();
@@ -328,19 +334,34 @@ public class OrderForEmployeePage extends BasePage {
 
     private boolean setClickOnCorrectDay(List<WebElement> enableDays, String days) {
         boolean isCorrectMonth = false;
-        for (WebElement day : enableDays) {
-            if (day.getText().equals(days)) {
-                isCorrectMonth = true;
-                day.click();
+        try {
+            for (WebElement day : enableDays) {
+                if (day.getText().equals(days)) {
+                    isCorrectMonth = true;
+                    waitForVisibilityOfElement(day);
+                    day.click();
+                }
+            }
+        } catch (StaleElementReferenceException ex) {
+            {
+                for (WebElement day : enableDays) {
+                    if (day.getText().equals(days)) {
+                        isCorrectMonth = true;
+                        waitForVisibilityOfElement(day);
+                        day.click();
+                    }
+                }
             }
         }
         return isCorrectMonth;
     }
 
     @Step
-    public OrderForEmployeePage selectOrderTime_future_add_days_from_now(int amountOfDays) {
+    public OrderForEmployeePage selectOrderTime_future_add_days_from_now(int amountOfDays) throws InterruptedException {
         new JsHelper(driver).scrollDownPage();
         WebElement time_future = driver.findElement(By.xpath("//label[@for='date2']"));
+        Thread.sleep(1000);
+        waitForVisibilityOfElement(time_future);
         time_future.click();
 
         WebElement day_today = driver.findElement(By.xpath("//div[contains(@class, 'day--today')]"));
@@ -373,6 +394,9 @@ public class OrderForEmployeePage extends BasePage {
 
     @Step
     public String getOrderTime() {
+        scrollDownPage();
+//        String isTimeNowSelected = driver.findElement(By.xpath(""//div[@class='pricing-date']//input[@type='radio']
+
         String isTimeNowSelected = timeNow_ifIsChecked.getAttribute("checked");
         String orderTimeText;
 
@@ -387,8 +411,16 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
+    public String getOrderTimeFutureOrderEditing() {
+        new JsHelper(driver).scrollDownPage();
+        String orderTimeText = futureOrderTimeFieldToGetValue.getAttribute("value");
+        return orderTimeText;
+    }
+
+
+    @Step
     public OrderForEmployeePage setProject_firstFromList() throws InterruptedException {
-        waitForElementToBeClickable(projectField);
+        Thread.sleep(1000);
         projectField.click();
         WebElement firstProjectFromList = driver.findElement(By.xpath("//ul[@class='open']/li"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -397,7 +429,6 @@ public class OrderForEmployeePage extends BasePage {
         Thread.sleep(2000);
         waitForTextToBePresentInElementValue(projectField, firstProjectFromListName);
         String firstProjectNameSelected = projectField.getAttribute("value");
-        System.out.println(firstProjectNameSelected);
         return this;
     }
 
@@ -419,11 +450,6 @@ public class OrderForEmployeePage extends BasePage {
         return this;
     }
 
-    @Step
-    private String getComment() {
-        String commentText = commentTextArea.getText();
-        return commentText;
-    }
 
     @Step
     public OrderForEmployeePage verifyNotificationsAboutTooLongComment() {
@@ -455,6 +481,53 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
+    public String getComment() {
+        String commentText = commentTextArea.getAttribute("value");
+
+        if (!commentText.isEmpty()) {
+            return commentText.replaceAll("\\s+", " ");
+        } else {
+            return "";
+        }
+    }
+
+    @Step
+    public String getCarClass(boolean isPremiumTaxiUse) {
+        if (isPremiumTaxiUse) {
+            return "Premium";
+        } else return "Standardowa";
+    }
+
+
+    @Step
+    public String getIfIsLargeTruncSelected(boolean isLargeTruncUse) {
+        if (isLargeTruncUse) {
+            return "Kombi: TAK";
+        } else return "";
+    }
+
+    @Step
+    public String getCommentToCompareInOrderedTaxiPage(boolean isSilentRideUse) {
+        String commentText = commentTextArea.getAttribute("value");
+        String silentRideText = "Cichy przejazd.";
+
+        if (isSilentRideUse) {
+            if (!commentText.isEmpty()) {
+                String wholeComment = silentRideText + " " + commentText;
+                return wholeComment.replaceAll("\\s+", " ");
+            } else {
+                return silentRideText;
+            }
+        } else {
+            if (!commentText.isEmpty()) {
+                return commentText.replaceAll("\\s+", " ");
+            } else {
+                return " ";
+            }
+        }
+    }
+
+    @Step
     public OrderForEmployeePage scrollDownPage() {
         new JsHelper(driver).scrollDownPage();
         return this;
@@ -468,7 +541,9 @@ public class OrderForEmployeePage extends BasePage {
         Assert.assertEquals(header.getText(), "Zamówienie zakończone powodzeniem!");
 
         List<String> expectedTexts = Arrays.asList(getNumberOfTaxisOrdered(), getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTime(), getComment());
+
         List<String> actualTexts = new ArrayList<String>();
+
 
         List<WebElement> popupInfosFromOrder = confirmationOrderPopup.findElements(By.xpath("//ul/li/strong"));
         for (WebElement info : popupInfosFromOrder) {
@@ -486,7 +561,7 @@ public class OrderForEmployeePage extends BasePage {
         WebElement header = confirmationOrderPopup.findElement(By.tagName("h3"));
         Assert.assertEquals(header.getText(), "Zaktualizowano zamówienie!");
 
-        List<String> expectedTexts = Arrays.asList(getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTime(), getComment());
+        List<String> expectedTexts = Arrays.asList(getPassengerName(), getStartAddress(), getFinalAddress(), getOrderTimeFutureOrderEditing(), getComment());
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> popupInfosFromOrder = confirmationOrderPopup.findElements(By.xpath("//ul/li/strong"));
@@ -695,11 +770,25 @@ public class OrderForEmployeePage extends BasePage {
     }
 
     @Step
-    public OrderForEmployeePage editOrder_verifyIfDataIsCorrect(String passengerName, String startAddress, String
-            orderTime, String projectName, String finalAddress) {
+    public OrderForEmployeePage editOrder_verifyIfDataIsCorrect_now(String passengerName, String
+            startAddress, String
+                                                                            orderTime, String projectName, String finalAddress) {
         Assert.assertEquals(passengerName, getPassengerName());
         Assert.assertEquals(startAddress, getStartAddress());
         Assert.assertEquals(orderTime, getOrderTime());
+        Assert.assertEquals(finalAddress, getFinalAddress());
+        Assert.assertEquals(projectName, getProjectName());
+        return this;
+    }
+
+
+    @Step
+    public OrderForEmployeePage editOrder_verifyIfDataIsCorrect_future(String passengerName, String
+            startAddress, String
+                                                                               orderTime, String projectName, String finalAddress) {
+        Assert.assertEquals(passengerName, getPassengerName());
+        Assert.assertEquals(startAddress, getStartAddress());
+        Assert.assertEquals(orderTime, getOrderTimeFutureOrderEditing());
         Assert.assertEquals(finalAddress, getFinalAddress());
         Assert.assertEquals(projectName, getProjectName());
         return this;

@@ -77,6 +77,7 @@ public class DashboardPage extends BasePage {
         List<String> actualTexts = new ArrayList<String>();
 
         List<WebElement> menuButtonList = driver.findElements(By.xpath("//ul[@class='nav-items']//li"));
+        Thread.sleep(1000);
         waitForPresenceOfElements(menuButtonList);
         waitForVisibilityOfElements(menuButtonList);
         for (WebElement element : menuButtonList) {

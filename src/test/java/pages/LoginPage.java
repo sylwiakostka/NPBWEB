@@ -140,11 +140,11 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public DashboardPage login_with_new_password(String newPassword) {
+    public DashboardPage login_with_new_password(String newPassword, String email) {
         waitForPresenceOfElement(usernameField);
         waitForPresenceOfElement(passwordField);
-        usernameField.sendKeys(EMAIL);
-        usernameField.sendKeys(newPassword);
+        usernameField.sendKeys(email);
+        passwordField.sendKeys(newPassword);
         loginButton.click();
         return new DashboardPage(driver);
     }

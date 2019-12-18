@@ -23,7 +23,7 @@ public class MoreOptionsPage extends BasePage {
     private WebElement additionalInfo;
 
     @FindBy(xpath = "//div[@class='car-class-info input']/p")
-    private WebElement additionalFeeInfo;
+    private List<WebElement> additionalFeeInfo;
 
     @FindBy(xpath = "//label[@for='cb3']")
     private WebElement silentRideCheckbox;
@@ -43,9 +43,13 @@ public class MoreOptionsPage extends BasePage {
     @FindBy(xpath = "//button[@class='btn yellow small']/span")
     private WebElement acceptButton;
 
+    private boolean isSilentRideSelected;
+    private boolean isLargeTrunkSelected;
+    private boolean isPremiumClassSelected;
 
     @Step
     public MoreOptionsPage verifyMoreOptionsPageElements() {
+        waitForVisibilityOfElement(header);
         Assert.assertEquals(header.getText(), "Opcje dodatkowe");
         Assert.assertEquals(additionalInfo.getText(), "Jeżeli chcesz zamówić busa, limuzynę, autokar lub inny transport niestandardowy, napisz do nas na cob@itaxi.pl lub zadzwoń na 22 439 00 30");
         Assert.assertEquals(silentRideCheckbox.getText(), "Cichy przejazd");
@@ -62,7 +66,6 @@ public class MoreOptionsPage extends BasePage {
         for (WebElement type : taxiTypes) {
             actualTexts.add(type.getText());
         }
-        System.out.println(actualTexts);
         Assert.assertEquals(expectedTexts.toString(), actualTexts.toString());
 
         return this;
@@ -75,9 +78,9 @@ public class MoreOptionsPage extends BasePage {
         String premiumTaxiClassName = premiumTaxiIsActive.getAttribute("class");
         Assert.assertEquals("cclass active", premiumTaxiClassName);
         if (isStartAddressAdded) {
-            Assert.assertTrue(additionalFeeInfo.getText().contains("Taksówka luksusowa: dopłata"));
+            Assert.assertTrue(additionalFeeInfo.get(0).getText().contains("Taksówka luksusowa: dopłata"));
         } else {
-            Assert.assertNull(additionalFeeInfo);
+            Assert.assertTrue(additionalFeeInfo.size() < 1);
         }
         return this;
     }
@@ -92,8 +95,14 @@ public class MoreOptionsPage extends BasePage {
 
     @Step
     public MoreOptionsPage selectPremiumTaxiAsActive() {
+        isPremiumClassSelected = true;
         premiumTaxiIcon.click();
         return this;
+    }
+
+    public boolean isPremiumTaxiUse (){
+        System.out.println("from moreOptionsPage_isPremiumTaxiUse:" + isPremiumClassSelected);
+        return isPremiumClassSelected;
     }
 
     @Step
@@ -104,15 +113,29 @@ public class MoreOptionsPage extends BasePage {
 
     @Step
     public MoreOptionsPage selectLargeTrunk() {
+        isLargeTrunkSelected = true;
         largeTrunkCheckbox.click();
         return this;
     }
 
+    public boolean isLargeTrunkUse (){
+        System.out.println("from moreOptionsPage_isLargeTrunkUse:" + isLargeTrunkSelected);
+        return isLargeTrunkSelected;
+    }
+
+
     @Step
     public MoreOptionsPage selectSilentRide() {
+        isSilentRideSelected = true;
         silentRideCheckbox.click();
         return this;
     }
+
+    public boolean isSilentRideUse (){
+        System.out.println("from moreOptionsPage_isSilentRideUse:" + isSilentRideSelected);
+        return isSilentRideSelected;
+    }
+
 
     @Step
     public MoreOptionsPage openFeeTableAndVerify() {

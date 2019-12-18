@@ -80,11 +80,13 @@ public class OrderedTaxiPage extends BasePage {
     }
 
     @Step
-    private boolean verifyIfOrderIsPresent_future(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
+    private boolean verifyIfOrderIsPresent_future(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress,String comment, String isLargeTruncSelected, String carClass) {
+        waitForVisibilityOfElements(orderList);
+
         for (WebElement order : orderList) {
             if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName)
-                    && order.getText().contains(finalAddress))
-
+                    && order.getText().contains(finalAddress)&& order.getText().contains(comment) && order.getText().contains(isLargeTruncSelected) && order.getText().contains(carClass))
+                System.out.println("order: "+order);
             {
                 return true;
             }
@@ -94,9 +96,12 @@ public class OrderedTaxiPage extends BasePage {
     }
 
     @Step
-    private boolean verifyIfOrderIsPresent_now(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
+    private boolean verifyIfOrderIsPresent_now(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress, String comment, String isLargeTruncSelected, String carClass) {
+        waitForVisibilityOfElements(orderList);
         for (WebElement order : orderList) {
-            if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_now(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
+            System.out.println(order.getText());
+            if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_now(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)
+                    && order.getText().contains(comment) && order.getText().contains(isLargeTruncSelected) && order.getText().contains(carClass) ) {
                 return true;
             }
         }
@@ -146,16 +151,14 @@ public class OrderedTaxiPage extends BasePage {
 
 
     @Step
-    public OrderedTaxiPage confirmForNowOrderIsPresent(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
-        System.out.println(verifyIfOrderIsPresent_now(passengerName, startAddress, orderTime, projectName, finalAddress));
-        Assert.assertTrue(verifyIfOrderIsPresent_now(passengerName, startAddress, orderTime, projectName, finalAddress));
+    public OrderedTaxiPage confirmForNowOrderIsPresent(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress, String comment, String isLargTruncSelected, String carClass) {
+        Assert.assertTrue(verifyIfOrderIsPresent_now(passengerName, startAddress, orderTime, projectName, finalAddress,comment, isLargTruncSelected, carClass));
         return this;
     }
 
     @Step
-    public OrderedTaxiPage confirmFutureOrderIsPresent(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress) {
-        System.out.println(verifyIfOrderIsPresent_future(passengerName, startAddress, orderTime, projectName, finalAddress));
-        Assert.assertTrue(verifyIfOrderIsPresent_future(passengerName, startAddress, orderTime, projectName, finalAddress));
+    public OrderedTaxiPage confirmFutureOrderIsPresent(String passengerName, String startAddress, String orderTime, String projectName, String finalAddress,String comment, String isLargTruncSelected, String carClass) {
+        Assert.assertTrue(verifyIfOrderIsPresent_future(passengerName, startAddress, orderTime, projectName, finalAddress,comment, isLargTruncSelected, carClass));
         return this;
     }
 
@@ -229,7 +232,7 @@ public class OrderedTaxiPage extends BasePage {
         try {
             for (WebElement order : orderList) {
                 if (order.getText().contains(passengerName) && order.getText().contains(startAddress) && order.getText().contains(prepareOrderTimeToCompareInListDetails_future(orderTime)) && order.getText().contains(projectName) && order.getText().contains(finalAddress)) {
-                    int index = orderList.indexOf(order)+1;
+                    int index = orderList.indexOf(order) + 1;
                     driver.findElement(By.xpath("//ul[@class='ordered-list']/li" + "[" + index + "]" + "//a[@class='btn transparent small']/span[.='Zmień']")).click();
                 } else {
                     System.out.println("brak zlecenia");
@@ -248,7 +251,6 @@ public class OrderedTaxiPage extends BasePage {
         }
         return new OrderForEmployeePage(driver);
     }
-
 
 
 }

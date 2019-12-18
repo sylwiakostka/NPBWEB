@@ -6,13 +6,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import utilities.JsHelper;
 import utilities.SearchFromTables;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static utilities.NumberFormatter.changeToDecimalFormat;
 
@@ -511,6 +509,13 @@ public class MpkPage extends BasePage {
     public ProfilesPage go_to_ProfilesPage() {
         profilesButtonHeader.click();
         return new ProfilesPage(driver);
+
+    }
+
+    @Step
+    public ProjectsPage go_to_ProjectsPage() {
+        projectsButtonHeader.click();
+        return new ProjectsPage(driver);
 
     }
 

@@ -41,9 +41,9 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .go_to_orderForEmployeePage()
                 .verifyOrderForEmployeePage()
                 .verifyOrderTaxiPageLabelNames()
-                .setPassengerName("Kuba Mors")
+                .setPassengerName("Zuzia Nowak")
                 .setStartAddress("Wałbrzyska 5, Warszawa")
-                .addPassengers(5)
+                .addPassengers(7)
                 .scrollDownPage()
                 .selectOrderTime_future_add_hours_from_now(4)
                 .clickOrderButton()
@@ -64,7 +64,7 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .setPassengerName("Kuba Mors")
                 .setStartAddress("Wałbrzyska 5, Warszawa")
                 .scrollDownPage()
-                .selectOrderTime_future_add_days_from_now(80)
+                .selectOrderTime_future_add_days_from_now(1)
                 .clickOrderButton()
                 .verifyConfirmationOrderPopupWithOnlyRequiredInformation()
                 .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder();
@@ -233,7 +233,7 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .verifyOrderTaxiPageLabelNames()
                 .setPassengerName("Janusz Stary")
                 .setStartAddressByGeolocation()
-                .selectOrderTime_future_add_days_from_now(26)
+                .selectOrderTime_future_add_days_from_now(30)
                 .selectOrderTime_now()
                 .clickOrderButton()
                 .verifyConfirmationOrderPopupWithOnlyRequiredInformation()
@@ -250,7 +250,10 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .verify_dashboardPge_for_admin("ABC")
                 .go_to_orderForEmployeePage()
                 .verifyOrderForEmployeePage()
-                .verifyOrderTaxiPageLabelNames();
+                .verifyOrderTaxiPageLabelNames()
+                .setPassengerName("Julek Angielski")
+                .setStartAddressByGeolocation()
+                .setFinalAddress("Hassa 2, Warszawa");
         boolean isStartAddressAdded = new OrderForEmployeePage(driver).isStartAddressAdded();
         new OrderForEmployeePage(driver)
                 .openMoreOptionsAndVerifyButtonText()
@@ -261,7 +264,13 @@ public class OrderForEmployeePageTests extends BaseTests {
                 .selectLargeTrunk()
                 .selectSilentRide()
                 .openFeeTableAndVerify()
-                .acceptOptions();
+                .acceptOptions()
+                .scrollDownPage()
+                .setProject_firstFromList()
+                .addComment("jest oki bardzo fajnie i miło")
+                .clickOrderButton()
+                .verifyConfirmationOrderPopupWithAllInformation()
+                .acceptConfirmationOrderPopupAndVerifyEmptyFieldsOnPageAfterOrder();
     }
 
 }
