@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.WebElement;
 import pages.MoreOptionsPage;
 
 import java.util.*;
@@ -7,7 +8,21 @@ import java.util.*;
 
 public class TryCode {
     public static void main(String[] args) {
-        System.out.println(DataFaker.generate_fake_word_with_only_special_signs());
+
+        boolean isProjectPresent = false;
+        List<String> checkboxStatuses = new ArrayList<String>();
+        checkboxStatuses.add("true");
+        checkboxStatuses.add("true");
+        checkboxStatuses.add("true");
+
+        System.out.println(checkboxStatuses);
+        for (int i = 1; i < checkboxStatuses.size(); i++) {
+            if (checkboxStatuses.get(i).equals("true")) {
+                isProjectPresent = true;
+            }
+        }
+        System.out.println(isProjectPresent);
+
     }
 
 }

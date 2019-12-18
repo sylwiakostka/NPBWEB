@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.DataFaker;
 
 public class ProjectsPageTests extends BaseTests {
 
@@ -24,12 +25,13 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .fillActiveProjectForm();
         projectName = projectsPage.getProjectNameFromForm();
         description = projectsPage.getDescriptionFromForm();
         projectsPage
-                .clickSaveButtonOnForm()
+                .clickSaveButtonOnAddForm()
                 .verifyIsSuccesfullAddedNotificationDisplayed()
                 .verifyIsActiveProjectAdded(projectName, description);
     }
@@ -53,12 +55,13 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .fillUnactiveProjectForm();
         projectName = projectsPage.getProjectNameFromForm();
         description = projectsPage.getDescriptionFromForm();
         projectsPage
-                .clickSaveButtonOnForm()
+                .clickSaveButtonOnAddForm()
                 .verifyIsSuccesfullAddedNotificationDisplayed()
                 .verifyIsUnactiveProjectAdded(projectName, description);
     }
@@ -82,12 +85,13 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .fillActiveProjectFormWithSpecialSigns();
         projectName = projectsPage.getProjectNameFromForm();
         description = projectsPage.getDescriptionFromForm();
         projectsPage
-                .clickSaveButtonOnForm()
+                .clickSaveButtonOnAddForm()
                 .verifyIsSuccesfullAddedNotificationDisplayed()
                 .verifyIsActiveProjectAdded(projectName, description);
     }
@@ -111,12 +115,13 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .fillUnactiveProjectFormWith250CharsInDescription();
         projectName = projectsPage.getProjectNameFromForm();
         description = projectsPage.getDescriptionFromForm();
         projectsPage
-                .clickSaveButtonOnForm()
+                .clickSaveButtonOnAddForm()
                 .verifyIsSuccesfullAddedNotificationDisplayed()
                 .verifyIsUnactiveProjectAdded(projectName, description);
     }
@@ -139,6 +144,7 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .tryToAddActiveProjectWithMoreThan250CharsInDescription();
         projectName = projectsPage.getProjectNameFromForm();
@@ -164,6 +170,7 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .tryToAddActiveProjectWithoutProjectName();
         projectsPage
@@ -188,6 +195,7 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage
                 .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
                 .clickAddProjectButtonAndVerifyForm()
                 .fillFormAndCloseWithCrossButton();
         projectName = projectsPage.getProjectNameFromForm();
@@ -213,9 +221,11 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         int indexOfProject = 1;
         projectsPage
-                .verifyProjectsPageHeadersAndTitle();
-        projectName = projectsPage.getNameOfProjectActiveToDelete(indexOfProject);
-        projectsPage.selectActiveProjectAndClickDelete(indexOfProject)
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector();
+        projectName = projectsPage.getNameOfProjectActiveToDeleteOrEdit(indexOfProject);
+        projectsPage
+                .selectActiveProjectAndClickDelete(indexOfProject)
                 .verifyDeleteFormAndDeleteProject()
                 .verifyIsSuccesfullDeletedNotificationDisplayed()
                 .verifyIsProjectNoAtMainList(projectName);
@@ -239,13 +249,190 @@ public class ProjectsPageTests extends BaseTests {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         int indexOfProject = 1;
         projectsPage
-                .verifyProjectsPageHeadersAndTitle();
-        projectName = projectsPage.getNameOfProjectUnactiveToDelete(indexOfProject);
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector();
+        projectName = projectsPage.getNameOfProjectUnactiveToDeleteOrEdit(indexOfProject);
         System.out.println(projectName);
         projectsPage
                 .selectUnactiveProjectAndClickDelete(indexOfProject)
                 .verifyDeleteFormAndDeleteProject()
                 .verifyIsSuccesfullDeletedNotificationDisplayed()
                 .verifyIsProjectNoAtMainList(projectName);
+    }
+
+
+    @Test
+    public void should_edit_active_project_all_data() throws InterruptedException {
+        String projectNameToEdit;
+        String projectNameAfterEdit;
+        String projectDescriptionAfterEdit;
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        int indexOfProject = 1;
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector();
+        projectNameToEdit = projectsPage.getNameOfProjectActiveToDeleteOrEdit(indexOfProject);
+        projectsPage
+                .selectActiveProjectAndClickEdit(indexOfProject)
+                .verifyEditFormInActiveProject()
+                .editAllDataInProject();
+        projectNameAfterEdit = projectsPage.getProjectNameFromForm();
+        projectDescriptionAfterEdit = projectsPage.getDescriptionFromForm();
+        projectsPage
+                .clickSaveButtonOnEditForm()
+                .verifyIsSuccesfullEditedNotificationDisplayed()
+                .verifyIsUnactiveProjectAdded(projectNameAfterEdit, projectDescriptionAfterEdit)
+                .verifyIsProjectNoAtMainList(projectNameToEdit);
+    }
+
+    @Test
+    public void should_edit_unactive_project_all_data() throws InterruptedException {
+        String projectNameToEdit;
+        String projectNameAfterEdit;
+        String projectDescriptionAfterEdit;
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        int indexOfProject = 1;
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector();
+        projectNameToEdit = projectsPage.getNameOfProjectUnactiveToDeleteOrEdit(indexOfProject);
+        projectsPage
+                .selectUnactiveProjectAndClickEdit(indexOfProject)
+                .verifyEditFormInUnactiveProject()
+                .editAllDataInProject();
+        projectNameAfterEdit = projectsPage.getProjectNameFromForm();
+        projectDescriptionAfterEdit = projectsPage.getDescriptionFromForm();
+        projectsPage
+                .clickSaveButtonOnEditForm()
+                .verifyIsSuccesfullEditedNotificationDisplayed()
+                .verifyIsActiveProjectAdded(projectNameAfterEdit, projectDescriptionAfterEdit)
+                .verifyIsProjectNoAtMainList(projectNameToEdit);
+    }
+
+    @Test
+    public void should_try_to_edit_active_project_with_more_than_250_signs_in_description_and_without_project_name() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        int indexOfProject = 1;
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
+                .selectActiveProjectAndClickEdit(indexOfProject)
+                .verifyEditFormInActiveProject()
+                .fillFormWithProjectName("")
+                .fillFormWithDescription(DataFaker.generate_text_with_exact_amount_of_characters(300))
+                .clickSaveButtonOnEditForm()
+                .closeFormWithCrossButton()
+                .verifyIsAbsenceOfProjectNameNotificationDisplayed()
+                .verifyIsTooLongDescriptionInFormNotificationDisplayed();
+
+    }
+
+    @Test
+    public void should_try_to_add_project_with_repeated_name() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        int indexOfProject = 1;
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector();
+        String existingProjectName = projectsPage.getProjectNameFromMainList(indexOfProject);
+        projectsPage
+                .selectActiveProjectAndClickEdit(indexOfProject)
+                .verifyEditFormInActiveProject()
+                .fillFormWithProjectName(existingProjectName)
+                .clickSaveButtonOnEditForm()
+                .verifyIsProjectNameRepetitionNotificationDisplayed()
+                .closeFormWithCrossButton();
+    }
+
+    @Test
+    public void should_sort_by_active_projects() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
+                .selectOnlyActiveProjects()
+                .verifyIsOnlyActiveProjectsSelected();
+    }
+
+    @Test
+    public void should_sort_by_unactive_projects() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .verify_loginPage()
+                .login_as_superAdmin()
+                .choose_business_partner_from_list("ABC");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage
+                .go_to_MpkPage();
+        MpkPage mpkPage = new MpkPage(driver);
+        mpkPage
+                .verify_MpkPage()
+                .go_to_ProjectsPage();
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        projectsPage
+                .verifyProjectsPageHeadersAndTitle()
+                .verifyActiveProjectSelector()
+                .selectOnlyUnactiveProjects()
+                .verifyIsOnlyUnactiveProjectsSelected();
     }
 }

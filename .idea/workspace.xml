@@ -5,38 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="743fa332-9854-4dea-9537-16977104958f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MoreOptionsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OrderForEmployeePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/OrderForEmployeePageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/OrderedTaxiPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/EmailHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MoreOptionsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/MoreOptionsPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MpkPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/MpkPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/OrderForEmployeePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/OrderForEmployeePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/OrderedTaxiPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/OrderedTaxiPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/ProfilesPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/ProfilesPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/ProjectsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/ProjectsPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/RemindPasswordPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/RemindPasswordPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/OrderForEmployeePageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/OrderForEmployeePageTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/OrderedTaxiPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/OrderedTaxiPageTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/RemindPasswordPageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/RemindPasswordPageTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/DataFaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/DataFaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/EmailHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/EmailHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/TryCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/TryCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/ProjectsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/ProjectsPageTests.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,38 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProjectsPage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjectsPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RemindPasswordPageTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RemindPasswordPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="120" selection-start-line="120" selection-end-line="120" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashboardPage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pages/DashboardPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            <state relative-caret-position="286">
+              <caret line="561" column="45" lean-forward="true" selection-start-line="561" selection-start-column="45" selection-end-line="561" selection-end-column="45" />
+              <folding>
+                <element signature="e#3206#3214#0" expanded="true" />
+                <element signature="e#3818#3826#0" expanded="true" />
+                <element signature="e#15253#15261#0" expanded="true" />
+                <element signature="e#15972#15980#0" expanded="true" />
+                <element signature="e#20374#20382#0" expanded="true" />
+                <element signature="e#21458#21466#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +43,8 @@
       <file leaf-file-name="ProjectsPageTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+            <state relative-caret-position="349">
+              <caret line="435" selection-start-line="435" selection-end-line="435" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,16 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>moreo</find>
-      <find>startadd</find>
-      <find>bool</find>
-      <find>execute</find>
-      <find>comment</find>
-      <find>MoreOptionsPage</find>
-      <find>sys</find>
-      <find>getC</find>
-      <find>tak</find>
-      <find>isSilentRideUse</find>
       <find>getCommentToCompareInOrderedTaxiPage</find>
       <find>nex</find>
       <find>parts</find>
@@ -138,7 +83,17 @@
       <find>prec</find>
       <find>pomyś</find>
       <find>succ</find>
+      <find>unac</find>
+      <find>verify</find>
+      <find>back</find>
+      <find>click</find>
+      <find>syst</find>
+      <find>25</find>
       <find>250</find>
+      <find>fill</find>
+      <find>Brak nazwy projektu</find>
+      <find>bool</find>
+      <find>withou</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,7 +104,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/java/pages/OrderTaxiPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/OrderForEmployerPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tests/BaseTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/DataManipulations.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/ExcelUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/SearchFromTables.java" />
@@ -184,18 +138,19 @@
         <option value="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/RemindPasswordPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/MpkPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" />
         <option value="$PROJECT_DIR$/src/test/java/utilities/DataFaker.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/ProfilesPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/BaseTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utilities/TryCode.java" />
         <option value="$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1928" />
-    <option name="y" value="64" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1915" />
+    <option name="y" value="43" />
     <option name="width" value="1856" />
     <option name="height" value="1059" />
   </component>
@@ -262,6 +217,14 @@
             <path>
               <item name="NPBWEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NPBWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NPBWEB" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -314,7 +277,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.RemindPasswordPageTests.should_change_password_and_login_as_employee">
+  <component name="RunManager" selected="TestNG.ProjectsPageTests.should_sort_by_unactive_projects">
+    <configuration name="TryCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utilities.TryCode" />
+      <module name="NPBWEB" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -334,7 +308,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="ProjectsPageTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProjectsPageTests.selector" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -347,65 +321,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="ProjectsPageTests.should_add_unactive_project" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NPBWEB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
-      <option name="METHOD_NAME" value="should_add_unactive_project" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="0" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="ProjectsPageTests.should_can_not_add_active_project_with_more_than_250_signs_in_description" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NPBWEB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
-      <option name="METHOD_NAME" value="should_can_not_add_active_project_with_more_than_250_signs_in_description" />
+      <option name="METHOD_NAME" value="selector" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -421,7 +337,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="ProjectsPageTests.should_delete_active_project" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProjectsPageTests.should_sort_by_active_projects" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -434,7 +350,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
-      <option name="METHOD_NAME" value="should_delete_active_project" />
+      <option name="METHOD_NAME" value="should_sort_by_active_projects" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -450,7 +366,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="RemindPasswordPageTests.should_change_password_and_login_as_employee" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProjectsPageTests.should_sort_by_unactive_projects" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NPBWEB" />
       <extension name="coverage">
         <pattern>
@@ -462,8 +378,37 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RemindPasswordPageTests" />
-      <option name="METHOD_NAME" value="should_change_password_and_login_as_employee" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
+      <option name="METHOD_NAME" value="should_sort_by_unactive_projects" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="ProjectsPageTests.should_try_to_edit_active_project_with_more_than_250_signs_in_description_and_without_project_name" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NPBWEB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProjectsPageTests" />
+      <option name="METHOD_NAME" value="should_try_to_edit_active_project_with_more_than_250_signs_in_description_and_without_project_name" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -526,19 +471,19 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.all" />
-      <item itemvalue="TestNG.ProjectsPageTests.should_delete_active_project" />
-      <item itemvalue="TestNG.ProjectsPageTests" />
-      <item itemvalue="TestNG.ProjectsPageTests.should_add_unactive_project" />
-      <item itemvalue="TestNG.ProjectsPageTests.should_can_not_add_active_project_with_more_than_250_signs_in_description" />
-      <item itemvalue="TestNG.RemindPasswordPageTests.should_change_password_and_login_as_employee" />
+      <item itemvalue="TestNG.ProjectsPageTests.should_try_to_edit_active_project_with_more_than_250_signs_in_description_and_without_project_name" />
+      <item itemvalue="TestNG.ProjectsPageTests.selector" />
+      <item itemvalue="TestNG.ProjectsPageTests.should_sort_by_active_projects" />
+      <item itemvalue="Application.TryCode" />
+      <item itemvalue="TestNG.ProjectsPageTests.should_sort_by_unactive_projects" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RemindPasswordPageTests.should_change_password_and_login_as_employee" />
-        <item itemvalue="TestNG.ProjectsPageTests.should_can_not_add_active_project_with_more_than_250_signs_in_description" />
-        <item itemvalue="TestNG.ProjectsPageTests.should_add_unactive_project" />
-        <item itemvalue="TestNG.ProjectsPageTests" />
-        <item itemvalue="TestNG.ProjectsPageTests.should_delete_active_project" />
+        <item itemvalue="TestNG.ProjectsPageTests.should_sort_by_unactive_projects" />
+        <item itemvalue="TestNG.ProjectsPageTests.should_sort_by_active_projects" />
+        <item itemvalue="Application.TryCode" />
+        <item itemvalue="TestNG.ProjectsPageTests.selector" />
+        <item itemvalue="TestNG.ProjectsPageTests.should_try_to_edit_active_project_with_more_than_250_signs_in_description_and_without_project_name" />
       </list>
     </recent_temporary>
   </component>
@@ -556,55 +501,56 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProjectsPageTests_should_delete_unactive_project - 2019.12.17 at 15h 39m 32s.xml">
-      <configuration name="ProjectsPageTests.should_delete_unactive_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 14h 53m 45s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_delete_unactive_project - 2019.12.17 at 15h 43m 00s.xml">
-      <configuration name="ProjectsPageTests.should_delete_unactive_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 14h 55m 07s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_delete_unactive_project - 2019.12.17 at 15h 47m 10s.xml">
-      <configuration name="ProjectsPageTests.should_delete_unactive_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 14h 57m 08s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_delete_active_project - 2019.12.17 at 15h 47m 59s.xml">
-      <configuration name="ProjectsPageTests.should_delete_active_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 14h 57m 37s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests - 2019.12.18 at 10h 30m 14s.xml">
-      <configuration name="ProjectsPageTests" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 14h 58m 50s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_add_unactive_project - 2019.12.18 at 10h 31m 04s.xml">
-      <configuration name="ProjectsPageTests.should_add_unactive_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 15h 00m 28s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_add_unactive_project - 2019.12.18 at 10h 32m 54s.xml">
-      <configuration name="ProjectsPageTests.should_add_unactive_project" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 15h 02m 22s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ProjectsPageTests_should_can_not_add_active_project_with_more_than_250_signs_in_description - 2019.12.18 at 10h 34m 16s.xml">
-      <configuration name="ProjectsPageTests.should_can_not_add_active_project_with_more_than_250_signs_in_description" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_active_projects - 2019.12.18 at 15h 14m 16s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_active_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RemindPasswordPageTests_should_change_password_and_login_as_employee - 2019.12.18 at 10h 35m 00s.xml">
-      <configuration name="RemindPasswordPageTests.should_change_password_and_login_as_employee" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_unactive_projects - 2019.12.18 at 15h 16m 17s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_unactive_projects" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RemindPasswordPageTests_should_change_password_and_login_as_employee - 2019.12.18 at 10h 36m 01s.xml">
-      <configuration name="RemindPasswordPageTests.should_change_password_and_login_as_employee" configurationId="TestNG" />
+    <history-entry file="ProjectsPageTests_should_sort_by_unactive_projects - 2019.12.18 at 15h 21m 02s.xml">
+      <configuration name="ProjectsPageTests.should_sort_by_unactive_projects" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1915" y="43" width="1856" height="1059" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.31062356" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.30957684" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50067115" side_tool="true" weight="0.34020618" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.49273744" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.35746104" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.832998" visible="true" weight="0.25799572" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.832998" visible="true" weight="0.26948774" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" sideWeight="0.167002" side_tool="true" weight="0.23695652" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -616,7 +562,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
@@ -652,17 +597,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/MailReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
@@ -757,13 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-612">
           <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/BaseTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -868,13 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="123" column="56" lean-forward="true" selection-start-line="123" selection-start-column="56" selection-end-line="123" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pages/OrderedTaxiPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -910,13 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="190" column="25" lean-forward="true" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/TryCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -984,20 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/DashboardPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
+        <state relative-caret-position="50">
+          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1010,15 +917,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pages/RemindPasswordPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="390">
+          <caret line="133" column="9" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="133" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pages/DashboardPage.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.141.5/selenium-api-3.141.5.jar!/org/openqa/selenium/StaleElementReferenceException.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        <state relative-caret-position="68">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="123" column="56" lean-forward="true" selection-start-line="123" selection-start-column="56" selection-end-line="123" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/BaseTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="72" lean-forward="true" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utilities/TryCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#263#271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ProjectsPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pages/ProjectsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="561" column="45" lean-forward="true" selection-start-line="561" selection-start-column="45" selection-end-line="561" selection-end-column="45" />
+          <folding>
+            <element signature="e#3206#3214#0" expanded="true" />
+            <element signature="e#3818#3826#0" expanded="true" />
+            <element signature="e#15253#15261#0" expanded="true" />
+            <element signature="e#15972#15980#0" expanded="true" />
+            <element signature="e#20374#20382#0" expanded="true" />
+            <element signature="e#21458#21466#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

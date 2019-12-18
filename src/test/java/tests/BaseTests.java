@@ -25,7 +25,7 @@ public class BaseTests {
 
         driver = DriverFactory.getDriver(DriverType.CHROME);
         String url = "https://npb.jsdev.com.pl/login";
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().deleteAllCookies();
 
